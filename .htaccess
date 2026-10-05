@@ -1,0 +1,51 @@
+# ------------------------------------------------------------------
+# .htaccess — alleen voor Apache-hosting (de meeste Nederlandse
+# shared hosting). Werkt je host met Nginx of Netlify/Vercel?
+# Dan wordt dit bestand genegeerd en kun je het laten staan.
+# ------------------------------------------------------------------
+
+# 1) Altijd HTTPS + zonder www  (pas pas aan NADAT SSL actief is)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://northwebstudio.nl%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 2) Eigen 404-pagina
+ErrorDocument 404 /404.html
+
+# 3) Caching: bestanden in /assets blijven lang in de browser
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/avif "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# 4) Compressie
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json text/plain application/xml
+</IfModule>
+
+# 5) Juiste types voor moderne formaten
+AddType image/avif .avif
+AddType image/webp .webp
+AddType font/woff .woff
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+
+# 6) Basisbeveiliging
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+Options -Indexes

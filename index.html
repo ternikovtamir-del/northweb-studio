@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==========================================================
+       SEO — titel, beschrijving en social sharing
+       ========================================================== -->
+  <title>North Web — Websites voor lokale ondernemers | Webdesign Nederland</title>
+  <meta name="description" content="North Web ontwerpt en bouwt moderne, snelle websites voor lokale ondernemers in Nederland. Persoonlijk contact, duidelijke prijzen en ondersteuning na oplevering.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://northwebstudio.nl/">
+  <meta name="theme-color" content="#F4F0E8">
+  <meta name="color-scheme" content="light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="North Web">
+  <meta property="og:title" content="North Web — Een website zo goed als jouw vak">
+  <meta property="og:description" content="Moderne websites voor lokale ondernemers in Nederland. Webdesign, development, online afspraken en beheer.">
+  <meta property="og:url" content="https://northwebstudio.nl/">
+  <meta property="og:image" content="https://northwebstudio.nl/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="North Web — Een website zo goed als jouw vak">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts (lokaal gehost) — alleen de belangrijkste vooraf laden -->
+  <link rel="preload" href="assets/fonts/InterDisplay-Light.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-Regular.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Structured data: wie is North Web (geen adres, geen verzonnen gegevens) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "North Web",
+    "url": "https://northwebstudio.nl/",
+    "logo": "https://northwebstudio.nl/apple-touch-icon.png",
+    "image": "https://northwebstudio.nl/assets/images/og-image.jpg",
+    "description": "Webdesign en development voor lokale ondernemers in Nederland.",
+    "areaServed": { "@type": "Country", "name": "Nederland" },
+    "knowsLanguage": "nl",
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webdesign" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Online afspraken" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Onderhoud, hosting en beheer" } }
+    ]
+  }
+  </script>
+
+  <!-- Markeer dat JavaScript draait (animaties starten pas dan; zonder JS is alles zichtbaar) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Naar de inhoud</a>
+
+  <!-- ==========================================================
+       HEADER
+       ========================================================== -->
+  <header class="site-header" id="top" data-header>
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="North Web — terug naar boven">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">NORTH WEB</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Hoofdmenu">
+        <ul>
+          <li><a href="#werk" data-nav>Werk</a></li>
+          <li><a href="#diensten" data-nav>Diensten</a></li>
+          <li><a href="#werkwijze" data-nav>Werkwijze</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-small btn-dark header-cta" href="#contact">
+        <span>Start een project</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+
+    <!-- Mobiel menu -->
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <nav aria-label="Mobiel menu">
+        <ol>
+          <li><a href="#werk"><small>01</small>Werk</a></li>
+          <li><a href="#diensten"><small>02</small>Diensten</a></li>
+          <li><a href="#werkwijze"><small>03</small>Werkwijze</a></li>
+          <li><a href="#contact"><small>04</small>Contact</a></li>
+        </ol>
+      </nav>
+      <a class="btn btn-dark btn-block" href="#contact">Start een project <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================
+         HERO
+         ========================================================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Interactief kompasveld: naaldjes wijzen naar het noorden en draaien mee met de cursor -->
+      <canvas class="hero-field" data-hero-field aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+        <p class="eyebrow hero-eyebrow" data-intro>
+          <span class="dot" aria-hidden="true"></span> Webdesign &amp; development — Nederland
+        </p>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="line"><span>Een website</span></span>
+          <span class="line"><span>zo goed als</span></span>
+          <span class="line"><span><em>jouw vak.</em></span></span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-lead" data-intro>
+            North Web ontwerpt en bouwt moderne websites voor lokale ondernemers die online professioneel voor de dag willen komen.
+          </p>
+          <div class="hero-actions" data-intro>
+            <a class="btn btn-dark" href="#werk">Bekijk ons werk <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-line" href="#contact">Start een project</a>
+          </div>
+          <p class="hero-note" data-intro>
+            Voor kappers, garages, restaurants, bouwbedrijven en andere lokale zaken.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         WERK / SHOWCASE
+         Nieuw project toevoegen? Kopieer het <article class="project">-blok
+         hieronder en vervang teksten en afbeeldingen. Zie README.md.
+         ========================================================== -->
+    <section class="work section" id="werk" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>(01) Werk</p>
+          <h2 class="display-l" id="work-title" data-reveal-lines>
+            <span class="line"><span>Selected work</span></span>
+          </h2>
+          <p class="section-intro" data-reveal>Een selectie van ontwerpen en concepten. Elk project begint bij het bedrijf, niet bij een template.</p>
+        </div>
+
+        <div class="project-list">
+
+          <!-- PROJECT 01 — Humphrey Hair Design (concept, geen klant) -->
+          <article class="project" data-project>
+            <a class="project-stage" href="#project-humphrey" data-open-dialog="project-humphrey" data-cursor-label="View project →" aria-label="Bekijk het concept voor Humphrey Hair Design">
+              <div class="project-visual" data-reveal-image>
+                <div class="browser" data-parallax="-0.04">
+                  <div class="browser-bar" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                    <div class="browser-url">Concept · Humphrey Hair Design</div>
+                  </div>
+                  <picture>
+                    <source srcset="assets/images/work/humphrey-desktop.avif" type="image/avif">
+                    <img src="assets/images/work/humphrey-desktop.webp" width="2160" height="1350" loading="lazy" decoding="async"
+                         alt="Conceptontwerp van de homepage van Humphrey Hair Design: donkere, warme kleuren met de kop ‘Haar met karakter.’">
+                  </picture>
+                </div>
+                <div class="phone" data-parallax="0.08">
+                  <picture>
+                    <source srcset="assets/images/work/humphrey-mobile.avif" type="image/avif">
+                    <img src="assets/images/work/humphrey-mobile.webp" width="780" height="1688" loading="lazy" decoding="async"
+                         alt="Mobiele versie van het concept voor Humphrey Hair Design met een knop om direct online een afspraak te plannen.">
+                  </picture>
+                </div>
+              </div>
+              <span class="project-touch-label" aria-hidden="true">View project →</span>
+            </a>
+
+            <div class="project-meta">
+              <span class="project-index">01</span>
+              <h3 class="project-title">Humphrey Hair Design</h3>
+              <ul class="project-tags">
+                <li>Hoogezand</li>
+                <li>Website concept / Hair salon</li>
+                <li class="tag-concept">Concept project</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- PLAATS VOOR VOLGENDE PROJECTEN -->
+          <article class="project-next" data-reveal>
+            <span class="project-index">02</span>
+            <div>
+              <h3 class="project-next-title">Hier komt jouw bedrijf.</h3>
+              <p>Het volgende project in deze lijst kan dat van jou zijn.</p>
+            </div>
+            <a class="link-arrow" href="#contact">Start een project <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         DIENSTEN
+         ========================================================== -->
+    <section class="services section" id="diensten" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head section-head-split">
+          <p class="eyebrow" data-reveal>(02) Diensten</p>
+          <h2 class="display-l" id="services-title" data-reveal-lines>
+            <span class="line"><span>Alles voor een</span></span>
+            <span class="line"><span>sterke <em>online</em> zaak.</span></span>
+          </h2>
+        </div>
+
+        <ol class="service-list">
+          <li class="service" data-reveal>
+            <span class="service-num">01</span>
+            <h3 class="service-title">Webdesign</h3>
+            <p class="service-text">Een eigen ontwerp, afgestemd op jouw bedrijf en je klanten. Geen standaardthema, wel een herkenbare uitstraling.</p>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service-num">02</span>
+            <h3 class="service-title">Development</h3>
+            <p class="service-text">Snelle, responsive websites die net zo goed werken op desktop als op tablet en mobiel.</p>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service-num">03</span>
+            <h3 class="service-title">Online afspraken</h3>
+            <p class="service-text">Klanten plannen zelf een afspraak, ook buiten openingstijden. Ideaal voor salons, garages en andere lokale bedrijven.</p>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service-num">04</span>
+            <h3 class="service-title">Onderhoud</h3>
+            <p class="service-text">Updates, technische controle en kleine aanpassingen, zodat je website blijft werken zoals het hoort.</p>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service-num">05</span>
+            <h3 class="service-title">Hosting &amp; beheer</h3>
+            <p class="service-text">Liever niet bezig met techniek? Dan regelt North Web hosting, domein en beheer volledig voor je.</p>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         WAAROM NORTH WEB
+         ========================================================== -->
+    <section class="why section section-dark" aria-labelledby="why-title">
+      <div class="container">
+        <p class="eyebrow" data-reveal>(03) Waarom North Web</p>
+        <h2 class="why-statement" id="why-title" data-words>
+          <span class="s">Geen templates.</span> <span class="s">Geen ingewikkeld gedoe.</span> <em class="s">Gewoon een website die werkt.</em>
+        </h2>
+
+        <dl class="why-list">
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Persoonlijk contact</dt>
+            <dd>Je spreekt direct met degene die je website maakt. Geen accountmanagers, geen tussenlagen.</dd>
+          </div>
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Volledig responsive</dt>
+            <dd>Ontworpen voor mobiel én desktop — niet achteraf passend gemaakt.</dd>
+          </div>
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Snelle websites</dt>
+            <dd>Lichte code en geoptimaliseerde afbeeldingen. Je bezoekers hoeven niet te wachten.</dd>
+          </div>
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Moderne uitstraling</dt>
+            <dd>Een ontwerp dat past bij jouw zaak, zonder trucjes die over een jaar verouderd zijn.</dd>
+          </div>
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Duidelijke prijzen</dt>
+            <dd>Vooraf een heldere prijsopgave. Je weet precies waar je aan toe bent.</dd>
+          </div>
+          <div class="why-item" data-reveal>
+            <dt><span class="why-plus" aria-hidden="true">+</span>Ondersteuning na oplevering</dt>
+            <dd>Na de lancering sta je er niet alleen voor. Vragen of aanpassingen? Je krijgt gewoon hulp.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         WERKWIJZE (sticky, verandert tijdens het scrollen)
+         ========================================================== -->
+    <section class="process section" id="werkwijze" aria-labelledby="process-title" data-process>
+      <div class="container process-grid">
+        <div class="process-aside">
+          <div class="process-sticky">
+            <p class="eyebrow" data-reveal>(04) Werkwijze</p>
+            <h2 class="display-m" id="process-title" data-reveal-lines>
+              <span class="line"><span>Van eerste</span></span>
+              <span class="line"><span>gesprek tot <em>online.</em></span></span>
+            </h2>
+            <div class="process-counter" aria-hidden="true">
+              <span class="process-counter-track" data-process-counter>
+                <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+              </span>
+              <span class="process-counter-total">/05</span>
+            </div>
+            <div class="process-progress" aria-hidden="true"><span data-process-bar></span></div>
+          </div>
+        </div>
+
+        <ol class="process-steps">
+          <li class="process-step" data-step>
+            <span class="process-num">01</span>
+            <h3>Kennismaking</h3>
+            <p>We leren je bedrijf kennen: je klanten, je doelen en wat je van je website verwacht. Vrijblijvend en zonder verkooppraatje.</p>
+          </li>
+          <li class="process-step" data-step>
+            <span class="process-num">02</span>
+            <h3>Concept &amp; design</h3>
+            <p>We bepalen de visuele richting en maken een eerste ontwerp. Zo zie je al vroeg hoe je website eruit gaat zien.</p>
+          </li>
+          <li class="process-step" data-step>
+            <span class="process-num">03</span>
+            <h3>Development</h3>
+            <p>Het ontwerp wordt een volledig werkende, responsive website. Snel, toegankelijk en goed vindbaar.</p>
+          </li>
+          <li class="process-step" data-step>
+            <span class="process-num">04</span>
+            <h3>Online</h3>
+            <p>We koppelen je domein, regelen hosting en SSL en sluiten de benodigde diensten aan. Je website gaat live.</p>
+          </li>
+          <li class="process-step" data-step>
+            <span class="process-num">05</span>
+            <h3>Support</h3>
+            <p>Na de lancering beheer je de website zelf, of laat je het onderhoud aan North Web over. Allebei prima.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         PRIJZEN — pas de bedragen hieronder aan (zoek op "PRIJS")
+         ========================================================== -->
+    <section class="pricing section" id="prijzen" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>(05) Investering</p>
+          <h2 class="display-m" id="pricing-title" data-reveal-lines>
+            <span class="line"><span>Een goede website</span></span>
+            <span class="line"><span>is een <em>investering</em></span></span>
+            <span class="line"><span>in je bedrijf.</span></span>
+          </h2>
+        </div>
+
+        <ul class="price-list">
+          <li class="price-row" data-reveal>
+            <div class="price-name">
+              <h3>Website</h3>
+              <p>Eigen ontwerp, responsive, snel en klaar om gevonden te worden.</p>
+            </div>
+            <!-- PRIJS: Website -->
+            <p class="price-amount"><span class="price-from">vanaf</span> €750</p>
+          </li>
+          <li class="price-row" data-reveal>
+            <div class="price-name">
+              <h3>Website + online afspraken</h3>
+              <p>Alles van een website, plus een koppeling waarmee klanten zelf een afspraak plannen.</p>
+            </div>
+            <!-- PRIJS: Website + online afspraken -->
+            <p class="price-amount"><span class="price-from">vanaf</span> €950</p>
+          </li>
+          <li class="price-row" data-reveal>
+            <div class="price-name">
+              <h3>Onderhoud &amp; beheer</h3>
+              <p>Hosting, updates, controle en kleine aanpassingen. Jij hoeft nergens naar om te kijken.</p>
+            </div>
+            <!-- PRIJS: Onderhoud & beheer -->
+            <p class="price-amount"><span class="price-from">vanaf</span> €69<span class="price-period"> / maand</span></p>
+          </li>
+        </ul>
+
+        <div class="pricing-foot" data-reveal>
+          <p>Elke website is anders. Na een korte kennismaking ontvang je een duidelijke prijsopgave.</p>
+          <a class="btn btn-dark" href="#contact">Vraag een vrijblijvend gesprek aan <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         OVER
+         ========================================================== -->
+    <section class="about section" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-label">
+          <p class="eyebrow" data-reveal>(06) Over</p>
+          <h2 class="visually-hidden" id="about-title">Over North Web</h2>
+        </div>
+        <div class="about-body">
+          <p class="about-lead" data-reveal>
+            North Web helpt lokale ondernemers met websites die modern ogen, snel werken en vooral <em>duidelijk zijn</em> voor hun klanten.
+          </p>
+          <p class="about-text" data-reveal>
+            Geen onnodig ingewikkelde processen. Direct contact en een website die past bij jouw bedrijf.
+            North Web is bewust een kleine studio: je werkt met één vast aanspreekpunt, van het eerste gesprek tot lang na de lancering.
+          </p>
+          <ul class="about-facts" data-reveal>
+            <li><span>Studio</span>Klein en persoonlijk</li>
+            <li><span>Werkgebied</span>Nederland</li>
+            <li><span>Voor</span>Lokale ondernemers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FINAL CTA
+         ========================================================== -->
+    <section class="final-cta section-dark" aria-labelledby="cta-title">
+      <div class="container final-cta-inner">
+        <h2 class="final-title" id="cta-title" data-reveal-lines>
+          <span class="line"><span>Heb je een bedrijf dat</span></span>
+          <span class="line"><span>online <em>beter</em> verdient?</span></span>
+        </h2>
+        <p class="final-sub" data-reveal>Laten we iets moois bouwen.</p>
+        <a class="cta-orb" href="#contact" data-magnetic>
+          <span class="cta-orb-inner">START EEN PROJECT <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         CONTACT
+         Instellingen voor verzenden staan in assets/js/main.js (CONFIG).
+         ========================================================== -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow" data-reveal>(07) Contact</p>
+          <h2 class="display-m" id="contact-title" data-reveal-lines>
+            <span class="line"><span>Vertel over</span></span>
+            <span class="line"><span>je <em>bedrijf.</em></span></span>
+          </h2>
+          <p class="contact-text" data-reveal>Een paar regels is genoeg. Je hoort snel van ons, met een eerlijk advies en zonder verplichtingen.</p>
+          <p class="contact-direct" data-reveal>
+            Liever direct mailen?<br>
+            <!-- CONTACT: e-mailadres (ook aanpassen in main.js → CONFIG.email) -->
+            <a href="mailto:info@northwebstudio.nl" data-email-link>info@northwebstudio.nl</a>
+          </p>
+        </div>
+
+        <form class="contact-form" data-contact-form novalidate>
+          <div class="field">
+            <label for="f-name">Naam</label>
+            <input id="f-name" name="naam" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-company">Bedrijf</label>
+            <input id="f-company" name="bedrijf" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Telefoon <span class="optional">(optioneel)</span></label>
+            <input id="f-phone" name="telefoon" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field field-full">
+            <label for="f-message">Waar kunnen we mee helpen?</label>
+            <textarea id="f-message" name="bericht" rows="5" required></textarea>
+          </div>
+
+          <!-- Spam-val: echte bezoekers zien dit veld niet -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Laat dit veld leeg</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-foot field-full">
+            <p class="form-privacy">Je gegevens worden alleen gebruikt om contact met je op te nemen.</p>
+            <button class="btn btn-dark btn-submit" type="submit">
+              <span>Versturen</span> <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="form-status field-full" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <p class="footer-brand">NORTH WEB</p>
+          <p>Webdesign &amp; Development<br>Netherlands</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <ul>
+            <li><a href="#werk">Werk</a></li>
+            <li><a href="#diensten">Diensten</a></li>
+            <li><a href="#werkwijze">Werkwijze</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <a href="https://northwebstudio.nl/">northwebstudio.nl</a><br>
+          <a href="mailto:info@northwebstudio.nl" data-email-link>info@northwebstudio.nl</a>
+        </div>
+        <div class="footer-col footer-col-end">
+          <a class="link-arrow" href="#top">Naar boven <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+      <p class="footer-word" aria-hidden="true">NORTH WEB</p>
+      <p class="footer-legal">© <span data-year>2026</span> North Web. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       PROJECTDETAIL (pop-up) — Humphrey Hair Design
+       ========================================================== -->
+  <dialog class="project-dialog" id="project-humphrey" aria-labelledby="ph-title">
+    <div class="dialog-inner" tabindex="-1" autofocus>
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Sluiten">Sluiten <span aria-hidden="true">×</span></button>
+      <p class="eyebrow">Concept project · Hoogezand</p>
+      <h2 class="display-m" id="ph-title">Humphrey Hair Design</h2>
+
+      <div class="dialog-grid">
+        <div class="dialog-text">
+          <p class="dialog-lead">Een vrij concept: hoe een kapsalon in Hoogezand zich online zou kunnen presenteren.</p>
+          <p class="dialog-disclaimer">Dit ontwerp is op eigen initiatief gemaakt door North Web. Het is niet in opdracht gemaakt en Humphrey Hair Design is geen klant van North Web.</p>
+          <h3>Uitgangspunten</h3>
+          <ul class="dialog-points">
+            <li>Een donker, warm kleurpalet met een messingkleurig accent — rustig en verzorgd, zoals een goede salon.</li>
+            <li>Online een afspraak maken staat centraal en is op elk scherm met één tik bereikbaar.</li>
+            <li>Grote, kalme typografie die vakmanschap uitstraalt zonder overdreven te zijn.</li>
+            <li>Mobiel eerst ontworpen: de meeste klanten zoeken hun kapper op hun telefoon.</li>
+          </ul>
+          <p class="dialog-meta">Website concept / Hair salon</p>
+        </div>
+        <div class="dialog-images">
+          <picture>
+            <source srcset="assets/images/work/humphrey-desktop.avif" type="image/avif">
+            <img src="assets/images/work/humphrey-desktop.webp" width="2160" height="1350" loading="lazy" decoding="async" alt="Desktopweergave van het concept voor Humphrey Hair Design.">
+          </picture>
+          <picture class="dialog-phone">
+            <source srcset="assets/images/work/humphrey-mobile.avif" type="image/avif">
+            <img src="assets/images/work/humphrey-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="Mobiele weergave van het concept voor Humphrey Hair Design.">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Volgt de cursor boven projecten (alleen desktop) -->
+  <div class="cursor-label" data-cursor aria-hidden="true"><span>View project →</span></div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
