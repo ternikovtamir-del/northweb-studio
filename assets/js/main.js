@@ -7,8 +7,8 @@
    CONFIG — dit zijn de instellingen die je zelf aanpast
    ------------------------------------------------------------- */
 const CONFIG = {
-  // E-mailadres voor contact (pas ook aan in index.html, zoek op "info@northwebstudio.nl")
-  email: 'info@northwebstudio.nl',
+  // E-mailadres voor contact (pas ook aan in index.html, zoek op "infonorthwebstudio.nl@gmail.com")
+  email: 'infonorthwebstudio.nl@gmail.com',
 
   // Adres waar het contactformulier naartoe verzendt.
   // Leeg laten = nog niet gekoppeld: het formulier verzendt dan NIETS en
@@ -17,11 +17,14 @@ const CONFIG = {
   //   'https://formspree.io/f/jouwcode'
   //   'https://api.web3forms.com/submit'
   //   '/contact.php'
-  formEndpoint: '',
+  formEndpoint: 'https://formsubmit.co/ajax/infonorthwebstudio.nl@gmail.com',
 
   // Extra velden die de formulierdienst nodig heeft (bijv. Web3Forms access_key)
   formExtraFields: {
     // access_key: 'jouw-web3forms-sleutel',
+    _subject: 'Nieuwe aanvraag via northwebstudio.nl',
+    _template: 'table',
+    _captcha: 'false',
   },
 };
 
@@ -351,6 +354,9 @@ const CONFIG = {
         Object.entries(CONFIG.formExtraFields).forEach(([k, v]) => data.append(k, v));
         const res = await fetch(CONFIG.formEndpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // Sommige diensten (zoals FormSubmit) geven 200 terug maar melden een fout in de JSON
+        const json = await res.json().catch(() => ({}));
+        if (json.success === false || json.success === 'false') throw new Error(json.message || 'Niet verzonden');
         form.reset();
         showStatus('Bedankt! Je bericht is verzonden. Je hoort zo snel mogelijk van ons.');
       } catch (err) {

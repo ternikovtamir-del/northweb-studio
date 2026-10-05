@@ -552,3 +552,6 @@ body.dialog-open { overflow: hidden; }
   .js .process-step { opacity: 1; }
   .js .hero-bottom::before { transform: none; }
 }
+
+/* Lange e-mailadressen mogen afbreken op smalle schermen */
+.contact-direct a, .footer-top a, .form-status a { overflow-wrap: anywhere; }
