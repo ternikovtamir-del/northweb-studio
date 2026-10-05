@@ -81,7 +81,7 @@ python3 -m http.server 8000
 ```
 
 ### SEO
-В `<head>` файла `index.html`: `<title>`, `meta description`, `canonical`, Open Graph и structured data (JSON-LD). Если домен изменится — замените `https://northwebstudio.nl/` везде в `index.html`, `robots.txt`, `sitemap.xml` и `.htaccess`.
+В `<head>` файла `index.html`: `<title>`, `meta description`, `canonical`, Open Graph и structured data (JSON-LD). Основной адрес сайта — `https://www.northwebstudio.nl/` (без www идёт переадресация, так настроено в Vercel). Если домен изменится — замените его везде в `index.html`, `robots.txt`, `sitemap.xml` и `.htaccess`.
 
 ---
 

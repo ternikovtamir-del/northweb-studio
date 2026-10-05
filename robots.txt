@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://northwebstudio.nl/sitemap.xml
+Sitemap: https://www.northwebstudio.nl/sitemap.xml
