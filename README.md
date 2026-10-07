@@ -103,6 +103,8 @@ python3 -m http.server 8000
 3. Замените: пути к картинкам, `alt`-тексты, номер (`02`), название, город, категорию.
 4. Если это реальный клиент — удалите строку `<li class="tag-concept">Concept project</li>`.
 5. Для всплывающего окна с деталями: скопируйте блок `<dialog … id="project-humphrey">` внизу страницы, дайте новый `id` (например `project-bakkerij`) и укажите этот же `id` в `data-open-dialog="project-bakkerij"` и `href="#project-bakkerij"` у нового проекта.
+Проект может вести не на всплывающее окно, а на живую демо-версию (как Atelier Hair, PROJECT 02): у ссылки `project-stage` вместо `data-open-dialog` стоят `href="https://…"`, `target="_blank"` и `data-cursor-label="Live demo ↗"`.
+
 6. Блок «Hier komt jouw bedrijf.» (`project-next`) можно оставить последним или удалить, когда проектов станет много.
 
 ⚠️ Humphrey Hair Design — **концепт**, не клиент. Это явно указано на сайте («Concept project» и пояснение в окне проекта). Не убирайте эти пометки, пока салон не станет настоящим клиентом.

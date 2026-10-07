@@ -573,3 +573,48 @@ body.dialog-open { overflow: hidden; }
 .footer-legal a { color: var(--ivory); text-decoration: underline; text-underline-offset: 3px; }
 .form-privacy a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 600px) { .legal .header-inner .link-arrow { font-size: 14px; } }
+
+/* ---------- Project 02: Atelier Hair — typografische cover in de kleuren van het concept ---------- */
+.project-visual.cover-atelier {
+  --ca-cream: #F8F5EF; --ca-sand: #EFE8DD; --ca-choc: #403128; --ca-soft: #6B5A4E; --ca-terra: #A54F38; --ca-line: #DED5C8;
+  background: var(--ca-cream); color: var(--ca-choc);
+  display: block; padding: clamp(18px, 3vw, 44px);
+}
+.cover-atelier::before { display: none; }
+.ca-bar { width: 100%; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: clamp(10px, 1.4vw, 18px); border-bottom: 1px solid var(--ca-line); font-size: clamp(9px, .9vw, 13px); }
+.ca-logo { font-family: var(--font-serif); font-style: italic; font-size: clamp(14px, 1.5vw, 22px); }
+.ca-logo b { font-family: var(--font-display); font-style: normal; font-weight: 500; letter-spacing: .12em; font-size: .78em; }
+.ca-logo small { font-family: var(--font-body); font-style: normal; font-size: .5em; letter-spacing: .3em; color: var(--ca-soft); }
+.ca-nav { color: var(--ca-soft); letter-spacing: .04em; }
+.ca-body { position: absolute; left: clamp(18px, 3vw, 44px); top: 26%; max-width: 58%; }
+.ca-eyebrow { font-size: clamp(9px, .85vw, 12px); letter-spacing: .22em; text-transform: uppercase; color: var(--ca-soft); margin-bottom: clamp(8px, 1.4vw, 20px); }
+.ca-title { font-family: var(--font-serif); font-style: normal; font-weight: 400; font-size: clamp(40px, 7.4vw, 128px); line-height: .95; letter-spacing: -.02em; }
+.ca-title em { color: var(--ca-terra); }
+.ca-btn { display: inline-block; margin-top: clamp(14px, 2.4vw, 36px); background: var(--ca-choc); color: var(--ca-cream); font-size: clamp(10px, 1vw, 15px); padding: .9em 1.6em; border-radius: 999px; }
+.ca-menu { position: absolute; left: clamp(18px, 3vw, 44px); right: 40%; bottom: clamp(18px, 3vw, 44px); border-top: 1px solid var(--ca-choc); font-size: clamp(9px, .95vw, 14px); }
+.ca-menu li { display: flex; justify-content: space-between; padding: .7em 0; border-bottom: 1px solid var(--ca-line); }
+.ca-menu li span:last-child { font-variant-numeric: tabular-nums; color: var(--ca-soft); }
+.ca-booking {
+  position: absolute; right: clamp(18px, 3vw, 44px); top: 22%; width: 31%;
+  background: #FFFDF9; border-radius: clamp(10px, 1.2vw, 18px); padding: clamp(12px, 1.8vw, 26px);
+  box-shadow: 0 40px 80px -30px rgba(64, 49, 40, .45), 0 0 0 1px rgba(64, 49, 40, .06);
+  font-size: clamp(9px, .95vw, 14px); display: grid; gap: .9em;
+  transition: transform 1s var(--ease-out);
+}
+.ca-booking-head { font-family: var(--font-serif); font-style: italic; font-size: 1.5em; }
+.ca-step { display: flex; align-items: center; gap: .7em; color: var(--ca-soft); padding-bottom: .9em; border-bottom: 1px solid var(--ca-line); }
+.ca-step b { margin-left: auto; font-weight: 500; color: var(--ca-choc); }
+.ca-step i { font-style: normal; width: 1.8em; height: 1.8em; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--ca-line); font-size: .85em; }
+.ca-step.is-done i { background: var(--ca-choc); border-color: var(--ca-choc); color: var(--ca-cream); }
+.ca-slots { display: flex; gap: .5em; flex-wrap: wrap; }
+.ca-slots span { border: 1px solid var(--ca-line); border-radius: 99px; padding: .4em .9em; font-variant-numeric: tabular-nums; }
+.ca-slots .is-on { background: var(--ca-terra); border-color: var(--ca-terra); color: #fff; }
+@media (hover: hover) { .project-stage:hover .ca-booking { transform: translateY(-3%) rotate(1.2deg); } }
+@media (max-width: 700px) {
+  .ca-nav { display: none; }
+  .ca-body { top: 15%; max-width: none; right: clamp(18px, 3vw, 44px); }
+  .ca-title { font-size: clamp(44px, 13vw, 64px); }
+  .ca-menu { display: none; }
+  .ca-booking { top: auto; bottom: 16px; right: 16px; width: 58%; }
+  .cover-atelier .project-touch-label, .project-stage .project-touch-label { z-index: 3; }
+}
