@@ -355,7 +355,9 @@
     </section>
 
     <!-- ==========================================================
-         PRIJZEN — pas de bedragen hieronder aan (zoek op "PRIJS")
+         PRIJZEN — pakketten en redesign
+         Bedragen aanpassen: zoek op "PRIJS:".
+         BTW: zoek op "BTW:" (één plek onder de pakketten + bij elke prijs).
          ========================================================== -->
     <section class="pricing section" id="prijzen" aria-labelledby="pricing-title">
       <div class="container">
@@ -368,36 +370,147 @@
           </h2>
         </div>
 
-        <ul class="price-list">
-          <li class="price-row" data-reveal>
-            <div class="price-name">
-              <h3>Website</h3>
-              <p>Eigen ontwerp, responsive, snel en klaar om gevonden te worden.</p>
+        <!-- Eenmalig vs. doorlopend -->
+        <div class="cost-split" data-reveal>
+          <div class="cost-split-item">
+            <p class="cost-split-label">Eenmalig</p>
+            <p>De ontwikkeling van je website. Je betaalt één keer een vaste prijs, die we vooraf afspreken.</p>
+          </div>
+          <div class="cost-split-item">
+            <p class="cost-split-label">Doorlopend, apart</p>
+            <p>Domein, hosting en eventuele betaalde diensten, zoals een boekingsdienst. Die vallen buiten de eenmalige prijs en spreken we vooraf met je af.</p>
+          </div>
+        </div>
+
+        <p class="intro-offer" data-reveal><span class="dot" aria-hidden="true"></span> Introductieprijzen voor onze eerste drie nieuwe klanten.</p>
+
+        <div class="package-grid">
+
+          <!-- PAKKET 1 -->
+          <article class="package" data-reveal>
+            <h3 class="package-name">One-page website</h3>
+            <!-- PRIJS: One-page website -->
+            <p class="package-price">€399 <span class="package-unit">eenmalig<!-- BTW: --></span></p>
+            <p class="package-lead">Een overzichtelijke website die jouw bedrijf, diensten en contactgegevens op één plek samenbrengt.</p>
+            <p class="package-label">Inbegrepen</p>
+            <ul class="package-list">
+              <li>Eén pagina met maximaal 7 inhoudelijke onderdelen</li>
+              <li>Ontwerp afgestemd op jouw huisstijl en kleuren</li>
+              <li>Werkt goed op telefoon, tablet en computer</li>
+              <li>Onderdelen over je bedrijf, diensten, prijzen, foto's en contact</li>
+              <li>Plaatsing van jouw teksten en foto's, met lichte tekstredactie</li>
+              <li>Knoppen om te bellen, te mailen of te appen</li>
+              <li>Basisinstellingen voor zoekmachines: paginatitel, omschrijving en kopjes</li>
+              <li>Afbeeldingen geoptimaliseerd voor snel laden</li>
+              <li>Koppeling van je domein en livegang</li>
+              <li>Twee correctierondes binnen de afgesproken opdracht</li>
+            </ul>
+            <p class="package-excl"><strong>Niet inbegrepen:</strong> extra pagina's, online afspraken, webshop, klantaccounts, logo-ontwerp en het schrijven van alle teksten vanaf nul.</p>
+            <a class="btn btn-dark package-cta" href="#contact" data-package="One-page website">Bespreek je website <span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- PAKKET 2 -->
+          <article class="package" data-reveal>
+            <h3 class="package-name">Bedrijfswebsite</h3>
+            <!-- PRIJS: Bedrijfswebsite -->
+            <p class="package-price">€599 <span class="package-unit">eenmalig<!-- BTW: --></span></p>
+            <p class="package-lead">Meer ruimte om jouw bedrijf, diensten en werkwijze duidelijk te presenteren.</p>
+            <p class="package-label">Inbegrepen</p>
+            <ul class="package-list">
+              <li>Maximaal 5 pagina's, bijvoorbeeld home, over ons, diensten, werk en contact</li>
+              <li>Ontwerp in de stijl van je bedrijf</li>
+              <li>Werkt goed op telefoon, tablet en computer</li>
+              <li>Plaatsing van jouw materiaal, met lichte tekstredactie</li>
+              <li>Contactformulier dat aanvragen naar een afgesproken e-mailadres stuurt</li>
+              <li>Test van het formulier vóór de livegang</li>
+              <li>Galerij met je werk, als je die wilt</li>
+              <li>Titel en omschrijving voor zoekmachines per pagina</li>
+              <li>Afbeeldingen geoptimaliseerd voor snel laden</li>
+              <li>Koppeling van je domein en livegang</li>
+              <li>Twee correctierondes binnen de afgesproken opdracht</li>
+            </ul>
+            <p class="package-excl"><strong>Niet inbegrepen:</strong> een boekingssysteem, betalen op de website, webshop, klantaccounts en complexe koppelingen.</p>
+            <a class="btn btn-dark package-cta" href="#contact" data-package="Bedrijfswebsite">Bespreek je website <span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- PAKKET 3 -->
+          <article class="package" data-reveal>
+            <h3 class="package-name">Website met online afspraken</h3>
+            <!-- PRIJS: Website met online afspraken -->
+            <p class="package-price"><span class="package-from">vanaf</span> €699 <span class="package-unit">eenmalig<!-- BTW: --></span></p>
+            <p class="package-price-note">De definitieve prijs hangt af van de gekozen boekingsdienst en de inrichting van je agenda.</p>
+            <p class="package-lead">Een website waarop klanten jouw diensten bekijken en via een gekoppelde boekingsdienst een afspraak plannen.</p>
+            <p class="package-label">Inbegrepen</p>
+            <ul class="package-list">
+              <li>Website tot 5 pagina's, met alles uit het pakket Bedrijfswebsite</li>
+              <li>Koppeling met één geschikte, bestaande boekingsdienst</li>
+              <li>Basisinrichting van maximaal 5 diensten en het rooster van één medewerker</li>
+              <li>Klanten kiezen een dienst, datum en beschikbaar tijdstip via de gekoppelde dienst</li>
+              <li>Standaard bevestigingsmail, als het abonnement van de boekingsdienst dat ondersteunt</li>
+              <li>Test van het volledige boekingsproces vóór de livegang</li>
+              <li>Korte uitleg over het beheren van je agenda</li>
+              <li>Twee correctierondes binnen de afgesproken opdracht</li>
+            </ul>
+            <div class="package-excl">
+              <p><strong>Goed om te weten:</strong></p>
+              <ul>
+                <li>Het abonnement van de boekingsdienst betaal je zelf en apart.</li>
+                <li>Meerdere medewerkers, complexe roosters, aanbetalingen, sms-herinneringen en extra koppelingen prijzen we apart.</li>
+                <li>We koppelen een bestaande boekingsdienst en bouwen geen eigen boekingssysteem. Welke functies je krijgt, hangt af van die dienst en het gekozen abonnement.</li>
+              </ul>
             </div>
-            <!-- PRIJS: Website -->
-            <p class="price-amount"><span class="price-from">vanaf</span> €750</p>
-          </li>
-          <li class="price-row" data-reveal>
-            <div class="price-name">
-              <h3>Website + online afspraken</h3>
-              <p>Alles van een website, plus een koppeling waarmee klanten zelf een afspraak plannen.</p>
-            </div>
-            <!-- PRIJS: Website + online afspraken -->
-            <p class="price-amount"><span class="price-from">vanaf</span> €950</p>
-          </li>
-          <li class="price-row" data-reveal>
-            <div class="price-name">
-              <h3>Onderhoud &amp; beheer</h3>
-              <p>Hosting, updates, controle en kleine aanpassingen. Jij hoeft nergens naar om te kijken.</p>
-            </div>
-            <!-- PRIJS: Onderhoud & beheer -->
-            <p class="price-amount"><span class="price-from">vanaf</span> €69<span class="price-period"> / maand</span></p>
-          </li>
-        </ul>
+            <a class="btn btn-dark package-cta" href="#contact" data-package="Website met online afspraken">Bespreek online boeken <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+
+        <!-- REDESIGN -->
+        <article class="redesign" data-reveal>
+          <div class="redesign-head">
+            <p class="eyebrow">Al een website?</p>
+            <h3 class="redesign-name">Website redesign</h3>
+            <!-- PRIJS: Website redesign -->
+            <p class="package-price"><span class="package-from">vanaf</span> €299 <span class="package-unit">eenmalig<!-- BTW: --></span></p>
+            <p class="package-lead">Heeft je website een verouderde uitstraling? Geef hem een frisse, professionele look die ook op mobiel prettig werkt.</p>
+            <p class="package-price-note">Vanaf €299 voor het vernieuwen van één bestaande pagina. Na een korte beoordeling van je website ontvang je een vaste offerte.</p>
+            <a class="btn btn-dark package-cta" href="#contact" data-package="Website redesign">Laat je website bekijken <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="redesign-body">
+            <p class="package-label">Inbegrepen in de basisprijs</p>
+            <ul class="package-list">
+              <li>Korte beoordeling van je huidige website</li>
+              <li>Visuele vernieuwing van één bestaande pagina, tot 7 onderdelen</li>
+              <li>Nieuwe kleuren, typografie, witruimte, knoppen en indeling</li>
+              <li>Betere weergave van die pagina op mobiel</li>
+              <li>Duidelijkere plek voor je belangrijkste diensten en contactknoppen</li>
+              <li>Hergebruik van je bestaande teksten en afbeeldingen</li>
+              <li>Optimalisatie van de bestaande afbeeldingen</li>
+              <li>Bestaande links blijven werken en aangepaste onderdelen worden getest</li>
+              <li>Twee correctierondes binnen de afgesproken opdracht</li>
+            </ul>
+            <p class="package-excl"><strong>Niet in de basisprijs:</strong> het volledig herbouwen van een website met meerdere pagina's, verhuizen naar een ander platform, nieuwe functies, herstel van complexe technische fouten en werk aan webshops, betalingen, klantaccounts of maatwerkkoppelingen.</p>
+            <p class="package-excl">Of een redesign mogelijk is en wat het kost, hangt af van het platform, de staat van je website en de toegang die je ons geeft. We bekijken eerst je website en spreken daarna een vaste prijs af.</p>
+          </div>
+        </article>
+
+        <!-- VOORWAARDEN -->
+        <div class="terms" data-reveal>
+          <h3 class="terms-title">Goed om te weten</h3>
+          <dl class="terms-list">
+            <div><dt>Introductieprijs</dt><dd>Deze prijzen gelden voor onze eerste drie nieuwe klanten.</dd></div>
+            <div><dt>Vaste prijs vooraf</dt><dd>Voordat we beginnen, ontvang je een overzicht van het afgesproken werk en een vaste prijs.</dd></div>
+            <div><dt>Betaling</dt><dd>50% vóór de start en 50% na jouw akkoord op het resultaat, vóór de livegang.</dd></div>
+            <div><dt>Correctierondes</dt><dd>Eén ronde is één gebundelde lijst met wijzigingen. Nieuwe pagina's, functies of een ander concept prijzen we apart.</dd></div>
+            <div><dt>Doorlopende kosten</dt><dd>Domein, hosting, betaalde diensten, licenties en verlengingen vallen buiten de eenmalige prijs. Welke kosten nodig zijn, spreken we vooraf met je af.</dd></div>
+            <div><dt>Na de oplevering</dt><dd>Ondersteuning en aanpassingen na de oplevering spreken we apart af. Een abonnement is niet verplicht.</dd></div>
+            <div><dt>Planning</dt><dd>De doorlooptijd bepalen we na ons gesprek en zodra we je materiaal hebben.</dd></div>
+            <div><dt>Vindbaarheid</dt><dd>De basisinstellingen voor zoekmachines geven geen garantie op een positie in Google.</dd></div>
+            <!-- BTW: hier komt één regel over btw zodra bekend is of de prijzen inclusief of exclusief btw zijn -->
+          </dl>
+        </div>
 
         <div class="pricing-foot" data-reveal>
-          <p>Elke website is anders. Na een korte kennismaking ontvang je een duidelijke prijsopgave.</p>
-          <a class="btn btn-dark" href="#contact">Vraag een vrijblijvend gesprek aan <span aria-hidden="true">→</span></a>
+          <p>Twijfel je welk pakket past? Na een korte kennismaking ontvang je een duidelijke prijsopgave.</p>
+          <a class="btn btn-line" href="#contact">Vraag een vrijblijvend gesprek aan <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -485,6 +598,10 @@
             <label for="f-message">Waar kunnen we mee helpen?</label>
             <textarea id="f-message" name="bericht" rows="5" required></textarea>
           </div>
+
+          <!-- Gekozen pakket (wordt ingevuld via de knoppen bij Prijzen) -->
+          <input type="hidden" name="pakket" value="" data-package-field>
+          <p class="package-chosen field-full" data-package-chosen hidden></p>
 
           <!-- Spam-val: echte bezoekers zien dit veld niet -->
           <div class="hp" aria-hidden="true">

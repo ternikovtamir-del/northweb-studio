@@ -318,6 +318,41 @@ const CONFIG = {
       f.addEventListener('input', () => { if (f.closest('.field')?.classList.contains('has-error')) setError(f, ''); });
     });
 
+    /* Gekozen pakket: knoppen bij Prijzen vullen het formulier alvast in */
+    const packageField = form.querySelector('[data-package-field]');
+    const packageChosen = form.querySelector('[data-package-chosen]');
+    const messageField = form.elements.bericht;
+    let prefilledText = '';
+    const clearPackage = () => {
+      if (packageField) packageField.value = '';
+      if (packageChosen) { packageChosen.hidden = true; packageChosen.textContent = ''; }
+    };
+    const setPackage = (name) => {
+      if (!packageField) return;
+      packageField.value = name;
+      packageChosen.innerHTML = '';
+      const label = document.createElement('span');
+      label.textContent = `Gekozen: ${name}`;
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.textContent = 'Wijzigen';
+      remove.addEventListener('click', () => {
+        if (messageField.value === prefilledText) messageField.value = '';
+        clearPackage();
+        messageField.focus();
+      });
+      packageChosen.append(label, remove);
+      packageChosen.hidden = false;
+      // Alleen een starttekst invullen als het bericht leeg is of nog onze vorige starttekst bevat
+      if (!messageField.value.trim() || messageField.value === prefilledText) {
+        prefilledText = `Ik heb interesse in: ${name}.\n\n`;
+        messageField.value = prefilledText;
+      }
+    };
+    document.querySelectorAll('[data-package]').forEach((btn) => {
+      btn.addEventListener('click', () => setPackage(btn.dataset.package));
+    });
+
     const buildMailto = () => {
       const d = new FormData(form);
       const subject = `Nieuw project — ${d.get('bedrijf') || d.get('naam')}`;
@@ -326,6 +361,7 @@ const CONFIG = {
         `Bedrijf: ${d.get('bedrijf') || '-'}`,
         `E-mail: ${d.get('email')}`,
         `Telefoon: ${d.get('telefoon') || '-'}`,
+        `Pakket: ${d.get('pakket') || '-'}`,
         '',
         String(d.get('bericht')),
       ];
@@ -358,6 +394,8 @@ const CONFIG = {
         const json = await res.json().catch(() => ({}));
         if (json.success === false || json.success === 'false') throw new Error(json.message || 'Niet verzonden');
         form.reset();
+        clearPackage();
+        prefilledText = '';
         showStatus('Bedankt! Je bericht is verzonden. Je hoort zo snel mogelijk van ons.');
       } catch (err) {
         showStatus(`Er ging iets mis bij het verzenden. Probeer het later opnieuw of <a href="${buildMailto()}">stuur je bericht via e-mail</a>.`);

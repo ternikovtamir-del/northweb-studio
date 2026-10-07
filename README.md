@@ -59,12 +59,14 @@ python3 -m http.server 8000
 Каждая такая строка анимируется отдельно. Чтобы изменить заголовок — меняйте текст внутри, сохраняя обёртки.
 
 ### Цены
-В `index.html` ищите `PRIJS`:
+Раздел `PRIJZEN` в `index.html`: три пакета (One-page website, Bedrijfswebsite, Website met online afspraken), отдельный блок Website redesign и список условий «Goed om te weten». Каждая цена отмечена комментарием `PRIJS:`:
 ```html
-<!-- PRIJS: Website -->
-<p class="price-amount"><span class="price-from">vanaf</span> €750</p>
+<!-- PRIJS: Bedrijfswebsite -->
+<p class="package-price">€599 <span class="package-unit">eenmalig<!-- BTW: --></span></p>
 ```
-Меняете только число. Совет: для бизнес-клиентов в NL принято указывать цены **excl. btw** — если так, допишите это в текст под ценами (`Elke website is anders…`).
+Меняете только число. Места для пометки о BTW отмечены комментарием `BTW:` (у каждой цены и одна строка в условиях).
+
+Кнопки пакетов (`data-package="…"`) ведут к форме и подставляют название пакета: оно видно над кнопкой «Versturen» и приходит в письме отдельной строкой «pakket».
 
 ### Контактные данные (e-mail)
 Сейчас стоит **infonorthwebstudio.nl@gmail.com**. Чтобы заменить, поменяйте адрес в трёх местах:
