@@ -99,15 +99,15 @@ python3 -m http.server 8000
 ## 5. Добавить новый проект в «Selected work»
 
 1. Положите скриншоты в `assets/images/work/` (например `bakkerij-desktop.avif/.webp` и `bakkerij-mobile.avif/.webp`).
-2. В `index.html` скопируйте целиком блок `<article class="project" data-project> … </article>` (PROJECT 01) и вставьте под ним.
+2. В `index.html` скопируйте целиком блок `<article class="project" data-project> … </article>` (PROJECT 01, Atelier Hair) и вставьте под ним.
 3. Замените: пути к картинкам, `alt`-тексты, номер (`02`), название, город, категорию.
 4. Если это реальный клиент — удалите строку `<li class="tag-concept">Concept project</li>`.
-5. Для всплывающего окна с деталями: скопируйте блок `<dialog … id="project-humphrey">` внизу страницы, дайте новый `id` (например `project-bakkerij`) и укажите этот же `id` в `data-open-dialog="project-bakkerij"` и `href="#project-bakkerij"` у нового проекта.
-Проект может вести не на всплывающее окно, а на живую демо-версию (как Atelier Hair, PROJECT 02): у ссылки `project-stage` вместо `data-open-dialog` стоят `href="https://…"`, `target="_blank"` и `data-cursor-label="Live demo ↗"`.
+5. Проект можно открыть во всплывающем окне с деталями (элемент `<dialog class="project-dialog">` внизу `index.html`, у ссылки — `data-open-dialog="id-окна"`) или вести на живую демо-версию (см. ниже). Стили и код для окна уже есть.
+Проект может вести не на всплывающее окно, а на живую демо-версию (как Atelier Hair, PROJECT 01): у ссылки `project-stage` вместо `data-open-dialog` стоят `href="https://…"`, `target="_blank"` и `data-cursor-label="Live demo ↗"`.
 
 6. Блок «Hier komt jouw bedrijf.» (`project-next`) можно оставить последним или удалить, когда проектов станет много.
 
-⚠️ Humphrey Hair Design — **концепт**, не клиент. Это явно указано на сайте («Concept project» и пояснение в окне проекта). Не убирайте эти пометки, пока салон не станет настоящим клиентом.
+⚠️ Работы реальных клиентов показывайте в портфолио только с их согласия. Концепты (как Atelier Hair) помечайте «Concept project».
 
 ---
 
