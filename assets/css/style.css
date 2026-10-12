@@ -739,3 +739,14 @@ body.dialog-open { overflow: hidden; }
   .ob-light-1 { top: 52%; } .ob-light-2 { top: 58%; } .ob-light-3 { display: none; }
 }
 .cover-obsidian + .project-touch-label { background: var(--ivory); color: var(--ink); }
+
+/* ---------- Kleine telefoons: kop laten doorlopen, contact in footer over volle breedte ---------- */
+@media (max-width: 600px) {
+  .final-title .line { display: inline; overflow: visible; padding: 0; margin: 0; }
+  .final-title .line > span { display: inline; }
+  .final-title .line + .line::before { content: " "; }
+  .footer-top > .footer-col:nth-child(3) { grid-column: 1 / -1; }
+}
+@media (max-width: 400px) {
+  .hero-eyebrow { letter-spacing: .1em; }
+}
