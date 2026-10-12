@@ -610,11 +610,30 @@
             <span class="line"><span>je <em>bedrijf.</em></span></span>
           </h2>
           <p class="contact-text" data-reveal>Een paar regels is genoeg. Je hoort snel van ons, met een eerlijk advies en zonder verplichtingen.</p>
-          <p class="contact-direct" data-reveal>
-            Liever direct mailen?<br>
-            <!-- CONTACT: e-mailadres (ook aanpassen in main.js → CONFIG.email) -->
-            <a href="mailto:infonorthwebstudio.nl@gmail.com" data-email-link>infonorthwebstudio.nl@gmail.com</a>
-          </p>
+          <div class="contact-direct" data-reveal>
+            <p>Liever direct contact?</p>
+            <!-- CONTACT: e-mail, WhatsApp en Telegram (ook aanpassen in main.js → CONFIG) -->
+            <ul class="contact-channels">
+              <li>
+                <a href="mailto:infonorthwebstudio.nl@gmail.com" data-email-link-channel>
+                  <span class="channel-label">E-mail</span>
+                  <span class="channel-value" data-email-text>infonorthwebstudio.nl@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/380665950125?text=Hallo%20North%20Web%2C%20ik%20heb%20een%20vraag%20over%20een%20website." target="_blank" rel="noopener" data-whatsapp-link>
+                  <span class="channel-label">WhatsApp</span>
+                  <span class="channel-value" data-whatsapp-text>+380 66 595 0125</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/Kawasakiuk21" target="_blank" rel="noopener" data-telegram-link>
+                  <span class="channel-label">Telegram</span>
+                  <span class="channel-value" data-telegram-text>@Kawasakiuk21</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <form class="contact-form" data-contact-form novalidate>
@@ -682,7 +701,8 @@
         </nav>
         <div class="footer-col">
           <a href="https://www.northwebstudio.nl/">northwebstudio.nl</a><br>
-          <a href="mailto:infonorthwebstudio.nl@gmail.com" data-email-link>infonorthwebstudio.nl@gmail.com</a>
+          <a href="mailto:infonorthwebstudio.nl@gmail.com" data-email-link>infonorthwebstudio.nl@gmail.com</a><br>
+          <a href="https://wa.me/380665950125" target="_blank" rel="noopener" data-whatsapp-link>WhatsApp</a> · <a href="https://t.me/Kawasakiuk21" target="_blank" rel="noopener" data-telegram-link>Telegram</a>
         </div>
         <div class="footer-col footer-col-end">
           <a class="link-arrow" href="#top">Naar boven <span aria-hidden="true">↑</span></a>

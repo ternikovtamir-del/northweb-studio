@@ -68,11 +68,13 @@ python3 -m http.server 8000
 
 Кнопки пакетов (`data-package="…"`) ведут к форме и подставляют название пакета: оно видно над кнопкой «Versturen» и приходит в письме отдельной строкой «pakket».
 
-### Контактные данные (e-mail)
-Сейчас стоит **infonorthwebstudio.nl@gmail.com**. Чтобы заменить, поменяйте адрес в трёх местах:
-1. `assets/js/main.js` → `CONFIG.email`
-2. `assets/js/main.js` → `CONFIG.formEndpoint` (адрес в конце ссылки FormSubmit)
-3. `index.html` → поиск по старому адресу (блок Contact и footer)
+### Контактные данные (e-mail, WhatsApp, Telegram)
+Все контакты задаются в одном месте — `assets/js/main.js` → `CONFIG`:
+- `email` — адрес почты (и в конце ссылки `formEndpoint`, если меняете ящик для формы);
+- `whatsapp` — номер только цифрами с кодом страны, без `+` (например `31612345678`), `whatsappDisplay` — как номер показывается на сайте, `whatsappMessage` — текст, который подставляется в новый чат;
+- `telegram` — имя пользователя без `@`.
+
+В `index.html` (блок Contact и футер) те же данные продублированы для случая, если JavaScript отключён — при замене поменяйте и там (поиск по старому номеру / адресу). Блок контактов на сайте: «Liever direct contact?».
 
 ### Цвета и шрифты
 `assets/css/style.css`, раздел **2. Design tokens** в начале файла:

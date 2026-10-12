@@ -432,8 +432,18 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 400; lette
 .contact-intro .eyebrow, .about-label .eyebrow { margin-bottom: 28px; }
 .contact-text { margin-top: 28px; color: var(--stone); max-width: 38ch; font-size: 18px; }
 .contact-direct { margin-top: 36px; font-size: 15px; color: var(--stone); }
-.contact-direct a { color: var(--ink); font-size: 20px; border-bottom: 1px solid var(--line); transition: border-color .3s; }
-.contact-direct a:hover { border-color: var(--ink); }
+.contact-direct > p { margin-bottom: 12px; }
+.contact-channels { display: grid; border-top: 1px solid var(--line); max-width: 460px; }
+.contact-channels li { border-bottom: 1px solid var(--line); }
+.contact-channels a { display: grid; grid-template-columns: 96px 1fr auto; align-items: baseline; gap: 12px; padding: 14px 0; color: var(--ink); transition: padding .4s var(--ease-out); }
+.contact-channels a::after { content: "→"; color: var(--stone); transition: transform .4s var(--ease-out), color .3s; }
+.channel-label { font-size: 13px; color: var(--stone); }
+.channel-value { font-size: 18px; min-width: 0; overflow-wrap: anywhere; }
+@media (hover: hover) {
+  .contact-channels a:hover { padding-left: 8px; }
+  .contact-channels a:hover::after { transform: translateX(4px); color: var(--accent-text); }
+}
+@media (max-width: 420px) { .contact-channels a { grid-template-columns: 1fr auto; row-gap: 2px; } .channel-label { grid-column: 1 / -1; } .channel-value { font-size: 17px; } }
 
 .contact-form { display: grid; gap: 8px 32px; align-content: start; }
 .field { position: relative; display: grid; }

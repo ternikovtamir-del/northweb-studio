@@ -10,6 +10,14 @@ const CONFIG = {
   // E-mailadres voor contact (pas ook aan in index.html, zoek op "infonorthwebstudio.nl@gmail.com")
   email: 'infonorthwebstudio.nl@gmail.com',
 
+  // WhatsApp: nummer alleen in cijfers, met landcode en zonder + (bijv. 31612345678)
+  whatsapp: '380665950125',
+  whatsappDisplay: '+380 66 595 0125',
+  whatsappMessage: 'Hallo North Web, ik heb een vraag over een website.',
+
+  // Telegram: gebruikersnaam zonder @
+  telegram: 'Kawasakiuk21',
+
   // Adres waar het contactformulier naartoe verzendt.
   // Leeg laten = nog niet gekoppeld: het formulier verzendt dan NIETS en
   // biedt de bezoeker eerlijk aan om het bericht via e-mail te sturen.
@@ -52,6 +60,17 @@ const CONFIG = {
     el.href = `mailto:${CONFIG.email}`;
     el.textContent = CONFIG.email;
   });
+
+  /* ---------- WhatsApp en Telegram uit CONFIG ---------- */
+  document.querySelectorAll('[data-email-link-channel]').forEach((el) => { el.href = `mailto:${CONFIG.email}`; });
+  document.querySelectorAll('[data-email-text]').forEach((el) => { el.textContent = CONFIG.email; });
+  document.querySelectorAll('[data-whatsapp-link]').forEach((el) => {
+    const withText = el.closest('.contact-channels') ? `?text=${encodeURIComponent(CONFIG.whatsappMessage)}` : '';
+    el.href = `https://wa.me/${CONFIG.whatsapp}${withText}`;
+  });
+  document.querySelectorAll('[data-whatsapp-text]').forEach((el) => { el.textContent = CONFIG.whatsappDisplay; });
+  document.querySelectorAll('[data-telegram-link]').forEach((el) => { el.href = `https://t.me/${CONFIG.telegram}`; });
+  document.querySelectorAll('[data-telegram-text]').forEach((el) => { el.textContent = `@${CONFIG.telegram}`; });
 
   /* ---------- Header: achtergrond bij scrollen, verbergen bij omlaag scrollen ---------- */
   const header = document.querySelector('[data-header]');
