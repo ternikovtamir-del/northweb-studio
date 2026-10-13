@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#04060a">
+<title>North Shine Detailing</title>
+<meta name="description" content="Premium car detailing studio. Build your detailing package and see the price instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="assets/poster.jpg">
+<style>
+/* Layout: cinematic dark studio. Everything is lit the way the hero video is lit —
+   black stage, cold rim-light on edges, ice-blue LED as the only accent, wet-floor reflections. */
+:root{
+  --ink-0:#04060a;      /* studio black (video background) */
+  --ink-1:#090d14;      /* surface */
+  --ink-2:#0f1620;      /* raised surface */
+  --steel:#476581;      /* reflection steel blue (sampled) */
+  --mist:#8fb0d4;       /* rim-light blue */
+  --led:#cfe6ff;        /* LED ice white — the accent */
+  --fg:#e9eff7;
+  --fg-dim:#93a1b3;
+  --fg-mute:#5e6b7c;
+  --line:rgba(143,176,212,.14);
+  --line-strong:rgba(143,176,212,.32);
+  --glow:rgba(160,205,255,.38);
+  --amber:#d9a25e;      /* brake-caliper amber — used only for stars + leather */
+  --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gut:clamp(16px,4vw,48px);
+  --r:14px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;background:var(--ink-0)}
+body{margin:0;background:var(--ink-0);color:var(--fg);font:400 16px/1.6 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--led);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--gut)}
+.eyebrow{font:500 12px/1.2 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.h2{font-size:clamp(2rem,4.6vw,4rem)}
+.lede{color:var(--fg-dim);font-size:clamp(1rem,1.3vw,1.15rem);max-width:56ch}
+section{scroll-margin-top:72px}
+.sec{padding-block:clamp(72px,10vw,140px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,56px)}
+
+/* Buttons */
+.btn{--h:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h);padding:0 26px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;font:600 13px/1 var(--display);font-stretch:112%;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .35s var(--ease),background .35s,box-shadow .35s,border-color .35s,color .35s;white-space:nowrap}
+.btn:hover{border-color:var(--led);transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-led{background:var(--led);color:var(--ink-0);border-color:var(--led);box-shadow:0 0 0 0 var(--glow),0 8px 30px -10px var(--glow)}
+.btn-led:hover{box-shadow:0 0 0 6px rgba(207,230,255,.08),0 10px 44px -6px var(--glow)}
+.btn-ghost{background:rgba(9,13,20,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s,border-color .4s,backdrop-filter .4s}
+.nav-in{display:flex;align-items:center;gap:24px;height:76px;transition:height .4s var(--ease)}
+.nav.scrolled{background:rgba(4,6,10,.74);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--line)}
+.nav.scrolled .nav-in{height:64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
+.logo-mark{width:30px;height:30px;flex:none}
+.logo-txt{font:800 15px/1 var(--display);font-stretch:125%;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.logo-txt small{display:block;font:500 10px/1 var(--mono);letter-spacing:.32em;color:var(--mist);margin-top:5px}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:10px 14px;font:500 13px/1 var(--body);letter-spacing:.04em;color:var(--fg-dim);text-decoration:none;border-radius:999px;transition:color .3s,background .3s}
+.nav-links a:hover{color:var(--fg);background:rgba(143,176,212,.08)}
+.nav .btn{--h:42px;padding:0 20px;font-size:12px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(9,13,20,.4);cursor:pointer;position:relative}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:var(--fg);transition:transform .35s var(--ease),top .35s var(--ease)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:25px}
+.nav.open .burger span:nth-child(1){top:21px;transform:rotate(45deg)}
+.nav.open .burger span:nth-child(2){top:21px;transform:rotate(-45deg)}
+.sheet{display:none}
+@media (max-width:960px){
+  .nav-links,.nav-in>.btn{display:none}
+  .burger{display:block}
+  .sheet{display:grid;position:fixed;inset:0;z-index:-1;background:rgba(4,6,10,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:calc(100px + env(safe-area-inset-top,0px)) var(--gut) 40px;align-content:start;gap:4px;opacity:0;pointer-events:none;transition:opacity .4s}
+  .nav.open .sheet{opacity:1;pointer-events:auto}
+  .sheet a{font:800 clamp(1.8rem,8vw,2.6rem)/1.15 var(--display);font-stretch:125%;text-decoration:none;text-transform:uppercase;padding:8px 0;border-bottom:1px solid var(--line)}
+  .sheet .btn{margin-top:24px;font:600 14px/1 var(--display);border-bottom:none}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;min-height:max(620px,100svh);display:grid;align-items:end;isolation:isolate;overflow:hidden;background:var(--ink-0)}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.hero-media video{opacity:0;transition:opacity 1.2s ease}
+.hero-media video.ready{opacity:1}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(4,6,10,.72) 0%,rgba(4,6,10,0) 18%),
+    linear-gradient(0deg,var(--ink-0) 0%,rgba(4,6,10,.88) 20%,rgba(4,6,10,.35) 46%,rgba(4,6,10,0) 64%),
+    radial-gradient(70% 60% at 0% 100%,rgba(4,6,10,.75),rgba(4,6,10,0) 70%)}
+.hero-in{position:relative;width:100%;padding-block:0 clamp(40px,6vw,72px);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:32px}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero h1{font-size:clamp(2.7rem,7.1vw,7.4rem);line-height:.88;font-weight:850}
+.hero h1 .l2{display:block;color:transparent;-webkit-text-stroke:1.2px var(--led);text-shadow:0 0 38px rgba(160,205,255,.25)}
+.hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--fg);opacity:.86;max-width:40ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg-dim)}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--mist);box-shadow:0 0 8px var(--led)}
+.ledline{height:1px;width:min(520px,80%);background:linear-gradient(90deg,var(--led),rgba(207,230,255,0));box-shadow:0 0 12px var(--glow);transform-origin:left}
+.scrollcue{display:grid;justify-items:center;gap:12px;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);writing-mode:vertical-rl;text-decoration:none}
+.scrollcue i{width:1px;height:64px;background:linear-gradient(var(--led),transparent);position:relative;overflow:hidden}
+.scrollcue i::after{content:"";position:absolute;left:0;top:-30%;width:1px;height:30%;background:var(--led);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
+.rise{animation:rise 1s var(--ease) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.18s}.rise.d3{animation-delay:.3s}.rise.d4{animation-delay:.42s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.ledline.rise{animation-name:draw}
+@keyframes draw{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+@media (max-width:760px){
+  .hero{align-items:end}
+  .hero-media{bottom:auto;height:66svh;min-height:420px}
+  .hero-media img,.hero-media video{object-position:58% 50%}
+  .hero-shade{background:
+    linear-gradient(180deg,rgba(4,6,10,.7) 0%,rgba(4,6,10,0) 16%),
+    linear-gradient(0deg,var(--ink-0) 0%,var(--ink-0) 36%,rgba(4,6,10,.6) 52%,rgba(4,6,10,0) 68%)}
+  .hero-in{grid-template-columns:1fr;padding-bottom:36px}
+  .scrollcue{display:none}
+  .hero-cta .btn{flex:1 1 220px}
+}
+
+/* CALCULATOR */
+.calc{position:relative;overflow:hidden;background:
+  radial-gradient(60% 50% at 80% 0%,rgba(71,101,129,.16),transparent 70%),
+  linear-gradient(180deg,var(--ink-0),var(--ink-1) 40%,var(--ink-0))}
+.calc::before{content:"";position:absolute;left:-30%;top:22%;width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(207,230,255,.55),transparent);filter:blur(.3px);animation:streak 9s linear infinite;pointer-events:none}
+@keyframes streak{from{transform:translateX(0)}to{transform:translateX(260%)}}
+.progress{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:40px;list-style:none;padding:0}
+.progress button{width:100%;display:grid;gap:10px;text-align:left;padding:0 0 4px;border:0;background:none;cursor:pointer;color:var(--fg-mute);transition:color .3s}
+.progress .bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden;position:relative}
+.progress .bar::after{content:"";position:absolute;inset:0;background:var(--led);box-shadow:0 0 10px var(--led);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.progress .lbl{font:500 12px/1 var(--mono);letter-spacing:.14em}
+.progress .lbl b{font-weight:500;color:var(--fg-mute);margin-right:8px}
+.progress li.done button,.progress li.active button{color:var(--fg)}
+.progress li.done .bar::after{transform:scaleX(1)}
+.progress li.active .bar::after{transform:scaleX(.5)}
+.progress li.done.active .bar::after{transform:scaleX(1)}
+
+.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,440px);gap:clamp(24px,4vw,56px);align-items:start}
+.calc-aside{position:sticky;top:84px;display:grid;gap:16px}
+.steps{display:grid;gap:56px;min-width:0}
+.step-h{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+.step-h .n{font:500 12px/1 var(--mono);color:var(--mist);letter-spacing:.14em}
+.step-h h3{font-size:clamp(1.25rem,2vw,1.6rem);font-stretch:118%}
+.step-h .hint{margin-left:auto;font-size:13px;color:var(--fg-mute)}
+
+/* car cards */
+.cars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.opt{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,rgba(15,22,32,.9),rgba(9,13,20,.9));cursor:pointer;transition:border-color .35s,box-shadow .45s,transform .35s var(--ease),background .35s;text-align:left;padding:0}
+.opt:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.opt[aria-checked="true"],.opt[aria-pressed="true"]{border-color:rgba(207,230,255,.75);box-shadow:0 0 0 1px rgba(207,230,255,.35),0 0 40px -8px var(--glow),inset 0 1px 0 rgba(207,230,255,.15);background:linear-gradient(180deg,rgba(28,42,60,.9),rgba(9,13,20,.95))}
+.car-opt{display:grid;gap:4px;padding:14px 14px 16px}
+.car-opt svg{width:100%;height:auto;aspect-ratio:600/220;margin:-4px 0 6px;transition:transform .5s var(--ease)}
+.car-opt:hover svg{transform:translateX(4px)}
+.car-opt .t{font:700 15px/1.1 var(--display);font-stretch:115%}
+.car-opt .s{font-size:12.5px;color:var(--fg-mute)}
+.car-opt .p{font:500 12px/1 var(--mono);color:var(--mist);margin-top:6px}
+
+/* packages */
+.pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pkg{padding:22px 20px 22px;display:grid;gap:14px;align-content:start}
+.pkg .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pkg .name{font:800 18px/1 var(--display);font-stretch:125%;letter-spacing:.04em}
+.badge{font:500 10px/1 var(--mono);letter-spacing:.14em;padding:6px 9px;border-radius:999px;background:var(--led);color:var(--ink-0);white-space:nowrap}
+.pkg ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:14px;color:var(--fg-dim)}
+.pkg li{display:flex;gap:10px;align-items:baseline}
+.pkg li::before{content:"";flex:none;width:10px;height:1px;background:var(--mist);transform:translateY(-4px)}
+.pkg .price{font:800 28px/1 var(--display);font-stretch:112%;margin-top:auto}
+.pkg .price small{font:500 12px var(--mono);color:var(--fg-mute);margin-right:6px;letter-spacing:.06em}
+.pkg .dur{font:500 12px/1 var(--mono);color:var(--fg-mute)}
+
+/* extras */
+.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ex{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:14px 16px;min-height:64px}
+.ex .ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(143,176,212,.08);border:1px solid var(--line);transition:background .35s,box-shadow .35s}
+.ex .ico svg{width:18px;height:18px;stroke:var(--mist);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.ex .t{font-weight:600;font-size:14.5px;line-height:1.25}
+.ex .t small{display:block;font-weight:400;font-size:12px;color:var(--fg-mute)}
+.ex .pr{font:500 13px/1 var(--mono);color:var(--fg-dim);display:flex;align-items:center;gap:10px}
+.sw{width:34px;height:20px;border-radius:999px;background:rgba(143,176,212,.14);position:relative;transition:background .35s;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--fg-dim);transition:transform .35s var(--ease),background .35s}
+.ex[aria-pressed="true"] .sw{background:rgba(207,230,255,.9)}
+.ex[aria-pressed="true"] .sw::after{transform:translateX(14px);background:var(--ink-0)}
+.ex[aria-pressed="true"] .ico{background:rgba(207,230,255,.14);box-shadow:0 0 20px -4px var(--glow)}
+.ex[aria-pressed="true"] .ico svg{stroke:var(--led)}
+
+/* stage */
+.stage{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:
+  radial-gradient(80% 70% at 50% 18%,rgba(71,101,129,.28),transparent 70%),
+  linear-gradient(180deg,#070b11,#030508);aspect-ratio:16/10;max-width:100%}
+.stage::after{content:"";position:absolute;left:8%;right:8%;bottom:22%;height:1px;background:linear-gradient(90deg,transparent,rgba(143,176,212,.35),transparent)}
+.stage-top{position:absolute;inset:14px 14px auto;display:flex;align-items:center;justify-content:space-between;gap:8px;z-index:3}
+.stage-name{font:500 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-dim)}
+.stage-name b{display:block;font:800 16px/1.1 var(--display);font-stretch:118%;letter-spacing:.02em;color:var(--fg);text-transform:none;margin-top:4px}
+.viewtog{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(4,6,10,.6)}
+.viewtog button{border:0;background:none;padding:7px 12px;border-radius:999px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;color:var(--fg-mute);cursor:pointer;transition:background .3s,color .3s}
+.viewtog button[aria-pressed="true"]{background:rgba(207,230,255,.14);color:var(--led)}
+.carwrap{position:absolute;inset:16% 2% 4%}
+.layer{position:absolute;inset:0;transition:opacity .7s var(--ease),transform .8s var(--ease),filter .7s}
+.layer.enter{opacity:0;transform:translateX(40px);filter:blur(6px)}
+.layer.leave{opacity:0;transform:translateX(-40px);filter:blur(6px)}
+.layer svg{width:100%;height:100%;overflow:visible}
+.ext,.int{transition:opacity .6s var(--ease)}
+.int{opacity:0}
+.stage[data-view="int"] .ext{opacity:.0}
+.stage[data-view="int"] .int{opacity:1}
+.gloss{opacity:0;transition:opacity 1s}
+.fx-ceramic .gloss{opacity:.55}
+.sweep{opacity:0}
+.fx-correction .sweep{opacity:1;animation:sweep 3.2s var(--ease) infinite}
+@keyframes sweep{from{transform:translateX(-160px) skewX(-18deg)}to{transform:translateX(760px) skewX(-18deg)}}
+.wring{opacity:0;transition:opacity .8s}
+.fx-wheels .wring{opacity:1;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55}}
+.hl-glow{opacity:.18;transition:opacity .8s}
+.beam{opacity:0;transition:opacity .9s}
+.fx-lights .hl-glow{opacity:1}.fx-lights .beam{opacity:.85}
+.hl-line{transition:stroke-width .6s}
+.fx-lights .hl-line{stroke-width:3}
+.eng{opacity:0;transition:opacity .6s}
+.fx-engine .eng{opacity:1}
+.eng .ring{transform-box:fill-box;transform-origin:center;animation:ping 2s ease-out infinite}
+@keyframes ping{from{transform:scale(1);opacity:.9}to{transform:scale(3.4);opacity:0}}
+.sheen{opacity:0;transition:opacity .8s}
+.fx-leather .sheen{opacity:1}
+.int-tag{opacity:0;transition:opacity .6s}
+.fx-pet .tag-pet,.fx-odor .tag-odor,.fx-leather .tag-leather{opacity:1}
+.stage-read{position:absolute;inset:auto 14px 12px;display:flex;justify-content:space-between;align-items:end;gap:12px;z-index:3}
+.gloss-m{display:grid;gap:6px;min-width:150px}
+.gloss-m .k{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--fg-mute)}
+.gloss-m .v{font:500 13px/1 var(--mono);color:var(--fg)}
+.gloss-m .v b{font-weight:500;color:var(--led)}
+.gloss-m .track{height:3px;border-radius:3px;background:rgba(143,176,212,.14);overflow:hidden}
+.gloss-m .fill{height:100%;background:linear-gradient(90deg,var(--steel),var(--led));box-shadow:0 0 10px var(--led);transform-origin:left;transition:transform .8s var(--ease)}
+.fxchips{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;max-width:60%}
+.fxchips span{font:500 10px/1 var(--mono);letter-spacing:.08em;padding:6px 8px;border-radius:999px;border:1px solid rgba(207,230,255,.3);color:var(--led);background:rgba(4,6,10,.6);animation:rise .5s var(--ease) both}
+
+/* summary */
+.summary{border:1px solid var(--line-strong);border-radius:18px;padding:24px;background:linear-gradient(180deg,rgba(15,22,32,.92),rgba(7,10,15,.96));box-shadow:0 30px 80px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(207,230,255,.08);display:grid;gap:18px}
+.summary h3{font-size:14px;letter-spacing:.2em;font-stretch:125%;display:flex;justify-content:space-between;align-items:center}
+.summary h3 span{font:500 11px var(--mono);letter-spacing:.1em;color:var(--fg-mute)}
+.srows{display:grid;gap:0;margin:0}
+.srow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.srow dt{font:500 11px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-mute)}
+.srow dd{margin:0;color:var(--fg);min-width:0}
+.srow dd .x{display:flex;justify-content:space-between;gap:10px;color:var(--fg-dim)}
+.srow dd .x span:last-child{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+.srow dd .none{color:var(--fg-mute)}
+.total{display:flex;align-items:end;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--line-strong)}
+.total .k{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-mute)}
+.total .k em{display:block;font-style:normal;color:var(--fg-dim);letter-spacing:.06em;text-transform:none;font-size:13px;margin-top:4px}
+.price-big{font:850 clamp(2.4rem,4vw,3.2rem)/.9 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums;color:var(--fg);text-shadow:0 0 30px rgba(160,205,255,.25);white-space:nowrap}
+.price-big.bump{animation:bump .5s var(--ease)}
+@keyframes bump{40%{color:var(--led);text-shadow:0 0 40px var(--glow)}}
+.sum-cta{display:grid;gap:10px}
+.sum-cta .btn{width:100%}
+.fine{font-size:12px;color:var(--fg-mute)}
+
+@media (max-width:1080px){
+  .calc-grid{display:flex;flex-direction:column;gap:28px}
+  .calc-aside{display:contents}
+  .stage-wrap{order:1;position:sticky;top:64px;z-index:5;width:100%;padding-block:8px;background:linear-gradient(180deg,var(--ink-1) 75%,rgba(9,13,20,0))}
+  .steps{order:2;width:100%}
+  .summary{order:3;width:100%}
+  .stage{aspect-ratio:auto;height:clamp(190px,34vw,300px)}
+}
+@media (max-width:760px){
+  .progress{margin-bottom:24px}
+  .progress .lbl{font-size:10.5px}
+  .progress .lbl b{display:block;margin:0 0 4px}
+  .cars{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gut) * -1);padding:4px var(--gut) 12px;gap:10px;scrollbar-width:none}
+  .cars::-webkit-scrollbar{display:none}
+  .cars .opt{flex:0 0 62%;scroll-snap-align:start}
+  .pkgs{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
+  .stage{height:200px}
+  .stage-name b{font-size:14px}
+  .gloss-m{min-width:120px}
+  .fxchips{display:none}
+  .step-h .hint{display:none}
+}
+
+/* BEFORE / AFTER */
+.ba{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:20px;overflow:hidden;border:1px solid var(--line);touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;--pos:50%}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:var(--led);box-shadow:0 0 18px var(--led)}
+.ba .knob{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(4,6,10,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--led);display:grid;place-items:center;box-shadow:0 0 30px -4px var(--glow)}
+.ba .knob svg{width:24px;height:24px;stroke:var(--led);fill:none;stroke-width:1.6}
+.ba .tag{position:absolute;top:18px;font:500 11px/1 var(--mono);letter-spacing:.2em;padding:8px 12px;border-radius:999px;background:rgba(4,6,10,.65);border:1px solid var(--line-strong)}
+.ba .tag.b{left:18px;color:var(--fg-dim)}.ba .tag.a{right:18px;color:var(--led)}
+.ba-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:18px;font:500 12px/1.4 var(--mono);letter-spacing:.1em;color:var(--fg-mute);text-transform:uppercase}
+.ba-foot b{color:var(--fg-dim);font-weight:500}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){.ba{aspect-ratio:4/3.4}.ba .tag{top:12px}.ba .tag.b{left:12px}.ba .tag.a{right:12px}}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.svc{position:relative;grid-column:span 2;min-height:400px;border-radius:18px;overflow:hidden;border:1px solid var(--line);isolation:isolate;display:flex;align-items:flex-end}
+.svc.big{grid-column:span 3;min-height:460px}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease),filter .8s}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,6,10,.95) 0%,rgba(4,6,10,.55) 42%,rgba(4,6,10,.05) 75%);transition:background .6s}
+.svc-in{padding:26px;display:grid;gap:10px;width:100%}
+.svc .idx{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--mist)}
+.svc h3{font-size:clamp(1.4rem,2.3vw,2rem)}
+.svc .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease),opacity .5s;opacity:0}
+.svc .more>div{overflow:hidden;display:grid;gap:14px}
+.svc .more p{color:var(--fg-dim);font-size:14.5px;max-width:42ch}
+.svc .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.svc .from{font:500 13px var(--mono);color:var(--fg)}
+.svc .from b{font:800 22px var(--display);font-stretch:112%;margin-left:6px}
+.svc .btn{--h:42px;font-size:11.5px;padding:0 18px}
+@media (hover:hover){
+  .svc:hover img{transform:scale(1.06)}
+  .svc:hover .more,.svc:focus-within .more{grid-template-rows:1fr;opacity:1}
+  .svc:hover::before{background:linear-gradient(0deg,rgba(4,6,10,.97) 0%,rgba(4,6,10,.7) 55%,rgba(4,6,10,.15) 90%)}
+}
+@media (hover:none){.svc .more{grid-template-rows:1fr;opacity:1}}
+@media (max-width:960px){.svc,.svc.big{grid-column:span 3;min-height:380px}.svc:last-child{grid-column:span 6}}
+@media (max-width:620px){.svc-grid{grid-template-columns:1fr}.svc,.svc.big,.svc:last-child{grid-column:auto;min-height:360px}}
+
+/* CINEMATIC */
+.cine{position:relative;min-height:clamp(560px,90vh,860px);display:grid;align-items:center;overflow:hidden;isolation:isolate}
+.cine-bg{position:absolute;inset:-10% 0;z-index:-2;will-change:transform}
+.cine-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.cine::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,6,10,.92) 0%,rgba(4,6,10,.55) 45%,rgba(4,6,10,.1) 75%),linear-gradient(0deg,var(--ink-0),transparent 25%,transparent 75%,var(--ink-0))}
+.cine-lines{display:grid;gap:.08em;font:850 clamp(2.6rem,8vw,7.5rem)/.92 var(--display);font-stretch:125%;text-transform:uppercase}
+.cine-lines span{display:block}
+.cine-lines .a{color:var(--fg-mute)}
+.cine-lines .b{color:var(--fg)}
+.cine-lines .c{color:transparent;-webkit-text-stroke:1.4px var(--led);background:linear-gradient(100deg,transparent 30%,rgba(207,230,255,.95) 50%,transparent 70%) 0 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%,30%{background-position:120% 0}70%,100%{background-position:-120% 0}}
+.cine p{margin-top:28px;color:var(--fg-dim);max-width:44ch}
+@media (max-width:760px){.cine::before{background:linear-gradient(0deg,rgba(4,6,10,.95) 10%,rgba(4,6,10,.45) 60%,rgba(4,6,10,.2)),linear-gradient(180deg,var(--ink-0),transparent 25%)}.cine{align-items:end;padding-block:80px 64px}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:clamp(28px,4vw,48px) clamp(12px,2vw,28px);display:grid;gap:12px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat .num{font:850 clamp(2.4rem,5.5vw,5rem)/.9 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.stat .num sup{font-size:.45em;color:var(--mist);vertical-align:top;margin-left:2px}
+.stat .k{font:500 12px/1.4 var(--mono);letter-spacing:.16em;color:var(--fg-mute)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* PACKAGES */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.tier{border:1px solid var(--line);border-radius:20px;padding:32px 28px;display:grid;gap:22px;grid-template-rows:auto auto 1fr auto;background:linear-gradient(180deg,var(--ink-1),var(--ink-0))}
+.tier.hot{border-color:rgba(207,230,255,.6);background:radial-gradient(90% 50% at 50% 0%,rgba(71,101,129,.35),transparent 70%),linear-gradient(180deg,#0f1722,var(--ink-1));box-shadow:0 0 70px -20px var(--glow);transform:translateY(-12px)}
+.tier .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tier .nm{font:800 20px/1 var(--display);font-stretch:125%;letter-spacing:.06em}
+.tier .pr{display:flex;align-items:baseline;gap:8px}
+.tier .pr small{font:500 12px var(--mono);color:var(--fg-mute);letter-spacing:.08em}
+.tier .pr b{font:850 3.2rem/1 var(--display);font-stretch:112%}
+.tier .pr span{font:500 12px var(--mono);color:var(--fg-mute)}
+.tier ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;align-content:start;color:var(--fg-dim);font-size:15px}
+.tier li{display:flex;gap:12px}
+.tier li svg{flex:none;width:16px;height:16px;margin-top:4px;stroke:var(--led);fill:none;stroke-width:1.8}
+.tier .meta{display:flex;justify-content:space-between;font:500 12px var(--mono);color:var(--fg-mute);padding-top:16px;border-top:1px solid var(--line)}
+.tier .btn{width:100%}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}.tier.hot{transform:none}}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(120px,13vw,180px);gap:12px}
+.gi{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--ink-1)}
+.gi img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.4s var(--ease)}
+.gi:hover img{transform:scale(1.02)}
+.gi figcaption{position:absolute;left:14px;bottom:12px;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg);background:rgba(4,6,10,.6);padding:7px 10px;border-radius:999px;border:1px solid var(--line)}
+.g1{grid-column:1/8;grid-row:span 3}.g2{grid-column:8/13;grid-row:span 2}.g3{grid-column:8/13;grid-row:span 2}
+.g4{grid-column:1/5;grid-row:span 2}.g5{grid-column:5/8;grid-row:span 1}.g6{grid-column:1/13;grid-row:span 1}
+.g5b{grid-column:5/8;grid-row:span 1}
+@media (max-width:760px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px}
+  .g1{grid-column:1/3;grid-row:span 2}.g2,.g3{grid-column:auto;grid-row:span 2}
+  .g4{grid-column:1/3;grid-row:span 2}.g5,.g5b{grid-column:auto;grid-row:span 1}.g6{grid-column:1/3;grid-row:span 1}
+}
+
+/* REVIEWS */
+.revs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.rev{border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:grid;gap:18px;grid-template-rows:auto 1fr auto;background:linear-gradient(180deg,var(--ink-1),transparent)}
+.stars{color:var(--amber);letter-spacing:.2em;font-size:14px}
+.rev q{font:500 1.12rem/1.45 var(--body);quotes:"\201C" "\201D";color:var(--fg)}
+.rev .who{display:grid;gap:2px;font-size:14px;padding-top:16px;border-top:1px solid var(--line)}
+.rev .who b{font-weight:600}
+.rev .who span{font:500 12px var(--mono);color:var(--fg-mute);letter-spacing:.04em}
+@media (max-width:1080px){.revs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.revs{grid-template-columns:1fr}}
+
+/* HOW */
+.how{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:48px 0 0}
+.how::before,.how::after{content:"";position:absolute;top:13px;left:0;right:0;height:1px;background:var(--line)}
+.how::after{background:linear-gradient(90deg,var(--steel),var(--led));box-shadow:0 0 12px var(--led);transform:scaleX(var(--p,0));transform-origin:left;transition:transform 2.2s var(--ease)}
+.how li{position:relative;display:grid;gap:10px}
+.how li::before{content:"";position:absolute;top:-41px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ink-0);border:1px solid var(--mist);transition:background .6s,box-shadow .6s}
+.how.on li::before{background:var(--led);box-shadow:0 0 14px var(--led)}
+.how.on li:nth-child(2)::before{transition-delay:.55s}.how.on li:nth-child(3)::before{transition-delay:1.1s}.how.on li:nth-child(4)::before{transition-delay:1.65s}
+.how .n{font:850 2.6rem/1 var(--display);font-stretch:112%;color:var(--fg-mute)}
+.how h3{font-size:1.15rem;font-stretch:115%;line-height:1.2}
+.how p{color:var(--fg-dim);font-size:14.5px}
+@media (max-width:860px){
+  .how{grid-template-columns:1fr;padding:0 0 0 40px;gap:36px}
+  .how::before,.how::after{top:0;bottom:0;left:5px;right:auto;width:1px;height:auto}
+  .how::after{transform:scaleY(var(--p,0));transform-origin:top}
+  .how li::before{top:6px;left:-40px}
+}
+
+/* BOOKING */
+.book{background:radial-gradient(50% 60% at 100% 0%,rgba(71,101,129,.2),transparent 70%),var(--ink-1);border-top:1px solid var(--line)}
+.book-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.cfg{margin-top:28px;border:1px solid rgba(207,230,255,.4);border-radius:16px;padding:20px;display:grid;gap:12px;background:rgba(4,6,10,.4);box-shadow:0 0 40px -18px var(--glow)}
+.cfg .k{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--led)}
+.cfg .line{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--fg-dim)}
+.cfg .line b{color:var(--fg);font-weight:600;text-align:right}
+.cfg .tot{font:850 1.8rem/1 var(--display);font-stretch:112%;color:var(--fg)}
+.cfg button{justify-self:start;background:none;border:0;color:var(--mist);font:500 12px var(--mono);letter-spacing:.08em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:4px}
+form.bf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.f{display:grid;gap:8px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-mute)}
+.f input,.f select{height:54px;width:100%;border-radius:12px;border:1px solid var(--line-strong);background:rgba(4,6,10,.55);padding:0 16px;font-size:16px;color:var(--fg);transition:border-color .3s,box-shadow .3s;appearance:none;-webkit-appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%238fb0d4' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.f input:focus,.f select:focus{outline:none;border-color:var(--led);box-shadow:0 0 0 4px rgba(207,230,255,.1)}
+.f input::placeholder{color:var(--fg-mute)}
+.f .err{font-size:12.5px;color:#f0a3a3;min-height:0}
+.f.bad input,.f.bad select{border-color:#c47878}
+.bf .btn{grid-column:1/-1;height:58px;font-size:13.5px}
+.bf .fine{grid-column:1/-1}
+.okpanel{border:1px solid rgba(207,230,255,.45);border-radius:18px;padding:32px;display:grid;gap:14px;background:rgba(4,6,10,.45);box-shadow:0 0 60px -20px var(--glow)}
+.okpanel h3{font-size:1.8rem}
+.okpanel p{color:var(--fg-dim)}
+@media (max-width:900px){.book-grid{grid-template-columns:1fr}}
+@media (max-width:520px){form.bf{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px}
+.cinfo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.ci{padding:22px 22px;display:grid;gap:8px;align-content:start;border-bottom:1px solid var(--line);min-width:0}
+.ci:nth-child(odd){border-right:1px solid var(--line)}
+.ci:nth-last-child(-n+2){border-bottom:0}
+.ci .k{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-mute)}
+.ci .v{font-size:15.5px;overflow-wrap:anywhere;user-select:text}
+.ci .v a{text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.ci .v a:hover{border-color:var(--led)}
+.copy{justify-self:start;background:none;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font:500 10.5px/1 var(--mono);letter-spacing:.1em;color:var(--fg-dim);cursor:pointer}
+.copy:hover{border-color:var(--led);color:var(--led)}
+.map{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;min-height:380px;background:#05080d}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .card{position:absolute;left:18px;bottom:18px;right:18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:rgba(4,6,10,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong)}
+.map .card b{display:block;font-weight:600}
+.map .card span{font-size:13px;color:var(--fg-dim)}
+.map .btn{--h:42px;font-size:11.5px;padding:0 18px}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.cinfo{grid-template-columns:1fr}.ci:nth-child(odd){border-right:0}.ci:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding-block:64px 40px}
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:32px}
+.foot h4{margin:0 0 14px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-mute)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot a{text-decoration:none;color:var(--fg-dim);font-size:14.5px}
+.foot a:hover{color:var(--fg)}
+.foot .brand p{color:var(--fg-dim);font-size:14.5px;max-width:34ch;margin-top:16px}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font:500 12px var(--mono);color:var(--fg-mute);letter-spacing:.06em}
+.bigword{font:900 clamp(3rem,15.5vw,15rem)/.8 var(--display);font-stretch:125%;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1px rgba(143,176,212,.18);margin-top:48px;white-space:nowrap;overflow:hidden}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}.foot .brand{grid-column:1/-1}}
+
+/* FLOATING */
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#0f1a14;border:1px solid rgba(110,220,150,.45);box-shadow:0 10px 40px -10px rgba(60,200,120,.5);transition:transform .4s var(--ease),bottom .45s var(--ease),opacity .4s}
+.wa:hover{transform:scale(1.06)}
+.wa{opacity:0;pointer-events:none;transform:scale(.85)}
+body.wa-on .wa{opacity:1;pointer-events:auto;transform:none}
+body.wa-on .wa:hover{transform:scale(1.06)}
+.wa svg{width:26px;height:26px;fill:#7ee2a2}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom,0px));display:none;align-items:center;justify-content:space-between;gap:12px;background:rgba(4,6,10,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line-strong);transform:translateY(110%);transition:transform .45s var(--ease)}
+.mbar .k{font:500 10.5px/1.2 var(--mono);letter-spacing:.12em;color:var(--fg-mute);text-transform:uppercase}
+.mbar .v{font:850 1.6rem/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.mbar .btn{--h:46px;padding:0 20px;font-size:12px}
+@media (max-width:1080px){.mbar{display:flex}body.show-bar .mbar{transform:none}body.show-bar .wa{bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
+
+/* Scroll reveal (progressive: content is fully visible where unsupported) */
+@supports (animation-timeline:view()){
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+  @keyframes rv{from{opacity:.15;transform:translateY(36px)}to{opacity:1;transform:none}}
+  .gi img{animation:gz linear both;animation-timeline:view();animation-range:entry 0% cover 60%}
+  @keyframes gz{from{transform:scale(1.16)}to{transform:scale(1.02)}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-media video{display:none}
+}
+</style>
+</head>
+<body>
+
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#home" aria-label="North Shine Detailing, home">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfe6ff"/><stop offset="1" stop-color="#476581"/></linearGradient></defs><path d="M16 2 L19 13 L30 16 L19 19 L16 30 L13 19 L2 16 L13 13 Z" fill="none" stroke="url(#lm)" stroke-width="1.4"/><circle cx="16" cy="16" r="2.2" fill="#cfe6ff"/></svg>
+      <span class="logo-txt">North Shine<small>DETAILING</small></span>
+    </a>
+    <nav aria-label="Main"><ul class="nav-links">
+      <li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#calculator">Calculator</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="btn btn-led" href="#book">Book now</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><span></span><span></span></button>
+  </div>
+  <div class="sheet" id="sheet">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#calculator">Calculator</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    <a class="btn btn-led" href="#book">Book now</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home" aria-label="Premium car detailing">
+  <div class="hero-media">
+    <img src="assets/poster.jpg" alt="" width="1280" height="720" fetchpriority="high">
+    <video id="heroVideo" muted loop playsinline autoplay preload="metadata" poster="assets/poster.jpg" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="eyebrow rise">Detailing studio · Utrecht</p>
+      <h1 class="rise d1">Premium car<span class="l2">detailing</span></h1>
+      <div class="ledline rise d2"></div>
+      <p class="hero-sub rise d2">Your car deserves more than a wash.</p>
+      <div class="hero-cta rise d3">
+        <a class="btn btn-led" href="#book">Book your detail <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#calculator">Build your package</a>
+      </div>
+      <p class="trust rise d4"><span>Premium products</span><span>Professional equipment</span><span>Attention to every detail</span></p>
+    </div>
+    <a class="scrollcue" href="#calculator">Configure <i></i></a>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc sec" id="calculator" aria-labelledby="calc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Configurator</p>
+      <h2 class="h2" id="calc-h">Build your detailing package</h2>
+      <p class="lede">Choose your car and services. See your estimated price instantly.</p>
+    </div>
+
+    <ol class="progress" id="progress">
+      <li data-s="1"><button type="button" data-go="step-car"><span class="bar"></span><span class="lbl"><b>01</b>CAR</span></button></li>
+      <li data-s="2"><button type="button" data-go="step-pkg"><span class="bar"></span><span class="lbl"><b>02</b>PACKAGE</span></button></li>
+      <li data-s="3"><button type="button" data-go="step-ex"><span class="bar"></span><span class="lbl"><b>03</b>EXTRAS</span></button></li>
+      <li data-s="4"><button type="button" data-go="summary"><span class="bar"></span><span class="lbl"><b>04</b>RESULT</span></button></li>
+    </ol>
+
+    <div class="calc-grid">
+      <div class="steps">
+        <div id="step-car" class="step" data-s="1">
+          <div class="step-h"><span class="n">01</span><h3>Your car</h3><span class="hint">Size sets the base price</span></div>
+          <div class="cars" id="cars" role="radiogroup" aria-label="Car type"></div>
+        </div>
+        <div id="step-pkg" class="step" data-s="2">
+          <div class="step-h"><span class="n">02</span><h3>Package</h3><span class="hint">Prices shown for a small car</span></div>
+          <div class="pkgs" id="pkgs" role="radiogroup" aria-label="Package"></div>
+        </div>
+        <div id="step-ex" class="step" data-s="3">
+          <div class="step-h"><span class="n">03</span><h3>Extras</h3><span class="hint">Watch the car react</span></div>
+          <div class="extras" id="extras"></div>
+        </div>
+      </div>
+
+      <aside class="calc-aside" aria-label="Your configuration">
+        <div class="stage-wrap">
+          <div class="stage" id="stage" data-view="ext">
+            <div class="stage-top">
+              <p class="stage-name">Selected<b id="stageName">Sedan</b></p>
+              <div class="viewtog" role="group" aria-label="View">
+                <button type="button" data-view="ext" aria-pressed="true">EXTERIOR</button>
+                <button type="button" data-view="int" aria-pressed="false">INTERIOR</button>
+              </div>
+            </div>
+            <div class="carwrap" id="carwrap"></div>
+            <div class="stage-read">
+              <div class="gloss-m" title="Estimated paint gloss after detailing, measured at 60°">
+                <span class="k">FINISH GLOSS · 60°</span>
+                <span class="v"><b id="gu">86</b> GU</span>
+                <span class="track"><span class="fill" id="guFill"></span></span>
+              </div>
+              <div class="fxchips" id="fxchips"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary" id="summary" data-s="4">
+          <h3>YOUR DETAIL <span>EST.</span></h3>
+          <dl class="srows">
+            <div class="srow"><dt>Car</dt><dd id="sCar">Sedan</dd></div>
+            <div class="srow"><dt>Package</dt><dd id="sPkg">Premium</dd></div>
+            <div class="srow"><dt>Extras</dt><dd id="sEx"><span class="none">None selected</span></dd></div>
+          </dl>
+          <div class="total">
+            <div class="k">Estimated price<em id="sDur">4.5–6.5 hours</em></div>
+            <div class="price-big" id="sPrice" aria-live="polite">€189</div>
+          </div>
+          <div class="sum-cta">
+            <button class="btn btn-led" type="button" id="bookPkg">Book this package <span class="arr">→</span></button>
+            <a class="btn" href="#contact">Ask a question</a>
+          </div>
+          <p class="fine">Final price is confirmed after a quick inspection of your car.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec" id="difference" aria-labelledby="ba-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Before / after</p>
+      <h2 class="h2" id="ba-h">The difference is in the details</h2>
+    </div>
+    <div class="ba rv" id="ba">
+      <img src="assets/after.webp" alt="After: deep black paint with crisp reflections" loading="lazy" width="1280" height="720">
+      <img class="before" src="assets/before.webp" alt="Before: dull, dusty paint with water spots" loading="lazy" width="1280" height="720">
+      <span class="tag b">BEFORE</span><span class="tag a">AFTER</span>
+      <div class="handle"><div class="knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+      <label class="vh" for="baRange">Before and after comparison</label>
+      <input class="vh" type="range" id="baRange" min="0" max="100" value="50">
+    </div>
+    <div class="ba-foot"><span>Drag to reveal the result.</span><span><b>Premium detail</b> + paint correction · 7 hours</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" aria-labelledby="svc-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Services</p>
+      <h2 class="h2" id="svc-h">Every surface, done properly</h2>
+    </div>
+    <div class="svc-grid">
+      <article class="svc big rv">
+        <img src="assets/s-interior.webp" alt="" loading="lazy">
+        <div class="svc-in"><span class="idx">INTERIOR</span><h3>Interior Detailing</h3>
+          <div class="more"><div><p>Steam-cleaned vents, extracted carpets, conditioned leather and a cabin that smells of nothing at all.</p>
+          <div class="row"><span class="from">from<b>€119</b></span><button class="btn" data-goto="pkg:premium">View service →</button></div></div></div></div>
+      </article>
+      <article class="svc big rv">
+        <img src="assets/s-exterior.webp" alt="" loading="lazy">
+        <div class="svc-in"><span class="idx">EXTERIOR</span><h3>Exterior Detailing</h3>
+          <div class="more"><div><p>Two-bucket hand wash, iron fallout removal, clay bar and a sealant that keeps the shine for months.</p>
+          <div class="row"><span class="from">from<b>€99</b></span><button class="btn" data-goto="pkg:essential">View service →</button></div></div></div></div>
+      </article>
+      <article class="svc rv">
+        <img src="assets/s-paint.webp" alt="" loading="lazy">
+        <div class="svc-in"><span class="idx">PAINT</span><h3>Paint Correction</h3>
+          <div class="more"><div><p>Machine polishing in one or two stages to remove swirls, holograms and light scratches.</p>
+          <div class="row"><span class="from">from<b>€249</b></span><button class="btn" data-goto="ex:correction">View service →</button></div></div></div></div>
+      </article>
+      <article class="svc rv">
+        <img src="assets/s-ceramic.webp" alt="" loading="lazy">
+        <div class="svc-in"><span class="idx">PROTECTION</span><h3>Ceramic Coating</h3>
+          <div class="more"><div><p>A hard 9H layer that repels water, dirt and UV. Up to five years of easy washing.</p>
+          <div class="row"><span class="from">from<b>€450</b></span><button class="btn" data-goto="ex:ceramic">View service →</button></div></div></div></div>
+      </article>
+      <article class="svc rv">
+        <img src="assets/s-full.webp" alt="" loading="lazy">
+        <div class="svc-in"><span class="idx">COMPLETE</span><h3>Full Detailing</h3>
+          <div class="more"><div><p>Inside and out, from door seals to exhaust tips. Our Signature process in one appointment.</p>
+          <div class="row"><span class="from">from<b>€299</b></span><button class="btn" data-goto="pkg:signature">View service →</button></div></div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC -->
+<section class="cine" aria-label="Restored and protected">
+  <div class="cine-bg" id="cineBg"><img src="assets/cine.webp" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <p class="cine-lines"><span class="a">Not just clean.</span><span class="b">Restored.</span><span class="c">Protected.</span></p>
+    <p>We bring paint back to its true depth, then lock it in under ceramic protection that holds up to Dutch winters.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec" aria-label="Why North Shine" style="padding-top:clamp(56px,7vw,96px)">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Why North Shine</p><h2 class="h2">Measured, not guessed</h2></div>
+    <div class="stats" id="stats">
+      <div class="stat"><span class="num" data-to="500" data-suf="+">500<sup>+</sup></span><span class="k">CARS DETAILED</span></div>
+      <div class="stat"><span class="num" data-to="4.9" data-dec="1" data-suf="/5">4.9<sup>/5</sup></span><span class="k">CUSTOMER RATING</span></div>
+      <div class="stat"><span class="num" data-to="5" data-suf="+">5<sup>+</sup></span><span class="k">YEARS EXPERIENCE</span></div>
+      <div class="stat"><span class="num" data-to="100" data-suf="%">100<sup>%</sup></span><span class="k">ATTENTION TO DETAIL</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sec" id="packages" aria-labelledby="pk-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Packages</p><h2 class="h2" id="pk-h">Three levels of finish</h2><p class="lede">Prices are for a small car. Larger cars add €20–€70, and the configurator shows your exact estimate.</p></div>
+    <div class="tiers" id="tiers"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery" aria-labelledby="gal-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Gallery</p><h2 class="h2" id="gal-h">From the studio floor</h2></div>
+    <div class="gal">
+      <figure class="gi g1"><img src="assets/g-grille.webp" alt="Coupe under studio light with illuminated grille" loading="lazy"><figcaption>Signature · Coupe</figcaption></figure>
+      <figure class="gi g2"><img src="assets/g-ring.webp" alt="Wheel lit by a ring light after ceramic protection" loading="lazy"><figcaption>Wheel ceramic</figcaption></figure>
+      <figure class="gi g3"><img src="assets/g-hood.webp" alt="Polished hood reflecting the studio lights" loading="lazy"><figcaption>Paint correction</figcaption></figure>
+      <figure class="gi g4"><img src="assets/g-front.webp" alt="Front three-quarter view of a black coupe" loading="lazy"><figcaption>Ceramic coating</figcaption></figure>
+      <figure class="gi g5"><img src="assets/g-side.webp" alt="Side panel and mirror detail" loading="lazy"><figcaption>Side panel</figcaption></figure>
+      <figure class="gi g5b"><img src="assets/s-ceramic.webp" alt="Rear wheel and door line" loading="lazy"><figcaption>Gloss check</figcaption></figure>
+      <figure class="gi g6"><img src="assets/g-reflect.webp" alt="Reflections of the car on the wet studio floor" loading="lazy"><figcaption>Final inspection</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews" aria-labelledby="rv-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Reviews · 4.9 average</p><h2 class="h2" id="rv-h">What owners say</h2></div>
+    <div class="revs">
+      <article class="rev rv"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>My car looked better than the day I bought it.</q><p class="who"><b>Daan V.</b><span>BMW 4 Series Gran Coupé</span></p></article>
+      <article class="rev rv"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>They found swirl marks I had stopped noticing. One day later they were gone.</q><p class="who"><b>Sophie M.</b><span>Audi A6 Avant</span></p></article>
+      <article class="rev rv"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>Two dogs, three kids, one SUV. The interior smells new again.</q><p class="who"><b>Ruben K.</b><span>Volvo XC90</span></p></article>
+      <article class="rev rv"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>A year after the ceramic coating, water still beads straight off.</q><p class="who"><b>Lars de J.</b><span>Porsche Taycan</span></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec" aria-labelledby="how-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Process</p><h2 class="h2" id="how-h">How it works</h2></div>
+    <ol class="how" id="how">
+      <li><span class="n">01</span><h3>Choose your package</h3><p>Build it in the configurator or ask us what your car needs.</p></li>
+      <li><span class="n">02</span><h3>Book your appointment</h3><p>Pick a date and time. We confirm within two working hours.</p></li>
+      <li><span class="n">03</span><h3>Leave your car with us</h3><p>Drop it off in the morning. We send photos while we work.</p></li>
+      <li><span class="n">04</span><h3>Drive away looking brand new</h3><p>Walk-around inspection together, plus aftercare tips.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="sec book" id="book" aria-labelledby="bk-h">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Online booking</p>
+      <h2 class="h2" id="bk-h" style="margin-top:16px">Ready to transform your car?</h2>
+      <p class="lede" style="margin-top:20px">Send your request and we will confirm the slot by phone or WhatsApp.</p>
+      <div class="cfg" id="cfg" hidden>
+        <span class="k">FROM YOUR CONFIGURATOR</span>
+        <div class="line"><span>Car</span><b id="cCar"></b></div>
+        <div class="line"><span>Package</span><b id="cPkg"></b></div>
+        <div class="line"><span>Extras</span><b id="cEx"></b></div>
+        <div class="line" style="align-items:end"><span>Estimated price</span><b class="tot" id="cTot"></b></div>
+        <button type="button" id="cEdit">Edit in configurator</button>
+      </div>
+    </div>
+    <div id="formWrap">
+      <form class="bf" id="bf" novalidate>
+        <div class="f full"><label for="fService">Service</label>
+          <select id="fService" name="service" required>
+            <option value="">Choose a service</option>
+            <option value="essential">Essential package</option>
+            <option value="premium">Premium package</option>
+            <option value="signature">Signature package</option>
+            <option value="interior">Interior detailing</option>
+            <option value="exterior">Exterior detailing</option>
+            <option value="correction">Paint correction</option>
+            <option value="ceramic">Ceramic coating</option>
+          </select><span class="err"></span></div>
+        <div class="f"><label for="fCar">Car type</label>
+          <select id="fCar" name="car" required>
+            <option value="">Choose car type</option>
+            <option value="small">Small Car</option><option value="sedan">Sedan</option><option value="suv">SUV</option><option value="lux">Large / Luxury</option>
+          </select><span class="err"></span></div>
+        <div class="f"><label for="fDate">Preferred date</label><input id="fDate" name="date" type="date" required><span class="err"></span></div>
+        <div class="f"><label for="fTime">Preferred time</label>
+          <select id="fTime" name="time" required><option value="">Choose time</option><option>08:00</option><option>09:00</option><option>10:00</option><option>13:00</option><option>15:00</option></select><span class="err"></span></div>
+        <div class="f"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" placeholder="Your name" required><span class="err"></span></div>
+        <div class="f"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="+31 6 …" required><span class="err"></span></div>
+        <div class="f"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><span class="err"></span></div>
+        <input type="hidden" id="fExtras" name="extras"><input type="hidden" id="fEst" name="estimate">
+        <button class="btn btn-led" type="submit">Book appointment <span class="arr">→</span></button>
+        <p class="fine">No payment now. You pay after the work is done and inspected together.</p>
+      </form>
+      <div class="okpanel" id="done" hidden>
+        <p class="eyebrow">Request ready</p>
+        <h3 id="doneH">Thank you.</h3>
+        <p id="doneP"></p>
+        <p class="fine">Demo site: this form does not send anything yet.</p>
+        <button class="btn" type="button" id="again" style="justify-self:start">Make another request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" aria-labelledby="ct-h">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Contact</p><h2 class="h2" id="ct-h">Visit the studio</h2></div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div class="ci"><span class="k">Phone</span><span class="v" id="phone">+31 30 207 4412</span><button class="copy" data-copy="phone" type="button">COPY</button></div>
+        <div class="ci"><span class="k">Email</span><span class="v" id="email">hello@northshine.nl</span><button class="copy" data-copy="email" type="button">COPY</button></div>
+        <div class="ci"><span class="k">Address</span><span class="v">Kanaalweg 18<br>3526 KL Utrecht</span></div>
+        <div class="ci"><span class="k">Opening hours</span><span class="v">Mon–Fri 08:00–18:00<br>Sat 09:00–16:00 · Sun closed</span></div>
+        <div class="ci"><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/31302074412" target="_blank" rel="noopener">Chat with us</a></span></div>
+        <div class="ci"><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/" target="_blank" rel="noopener">@northshine.detailing</a></span></div>
+      </div>
+      <div class="map" aria-label="Map of the studio area">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><radialGradient id="mg" cx="58%" cy="44%" r="40%"><stop offset="0" stop-color="#476581" stop-opacity=".35"/><stop offset="1" stop-color="#476581" stop-opacity="0"/></radialGradient>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#8fb0d4" stroke-opacity=".06"/></pattern></defs>
+          <rect width="600" height="400" fill="#05080d"/><rect width="600" height="400" fill="url(#grid)"/>
+          <path d="M-20 300 C120 280 200 330 330 250 S520 160 640 190" fill="none" stroke="#1b2a3a" stroke-width="26"/>
+          <path d="M-20 300 C120 280 200 330 330 250 S520 160 640 190" fill="none" stroke="#2a425c" stroke-width="1" stroke-dasharray="6 8"/>
+          <g fill="none" stroke="#8fb0d4" stroke-opacity=".22" stroke-width="2"><path d="M60 -10 L140 410"/><path d="M-10 120 L620 70"/><path d="M250 -10 L330 410"/><path d="M440 -10 L380 410"/><path d="M-10 210 L620 240"/><path d="M520 -10 L600 300"/></g>
+          <g fill="none" stroke="#8fb0d4" stroke-opacity=".1"><path d="M0 40 L600 20"/><path d="M0 350 L600 330"/><path d="M180 0 L210 400"/><path d="M500 0 L470 400"/></g>
+          <rect width="600" height="400" fill="url(#mg)"/>
+          <g transform="translate(348 176)"><circle r="40" fill="#cfe6ff" opacity=".06"/><circle r="18" fill="#cfe6ff" opacity=".12"><animate attributeName="r" values="12;30;12" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".25;0;.25" dur="3s" repeatCount="indefinite"/></circle><circle r="7" fill="#cfe6ff"/><circle r="3" fill="#04060a"/></g>
+          <text x="364" y="160" fill="#cfe6ff" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">NORTH SHINE</text>
+          <text x="40" y="292" fill="#8fb0d4" fill-opacity=".5" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2">KANAAL</text>
+        </svg>
+        <div class="card"><div><b>Kanaalweg 18, Utrecht</b><span>Free parking at the door · 8 min from A12</span></div><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kanaalweg+Utrecht" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand"><a class="logo" href="#home"><span class="logo-txt">North Shine<small>DETAILING</small></span></a><p>Premium detailing, paint correction and ceramic protection in Utrecht.</p></div>
+      <div><h4>Quick links</h4><ul><li><a href="#calculator">Calculator</a></li><li><a href="#packages">Packages</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#book">Book</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#services">Interior detailing</a></li><li><a href="#services">Exterior detailing</a></li><li><a href="#services">Paint correction</a></li><li><a href="#services">Ceramic coating</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="#contact">Contact</a></li><li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://wa.me/31302074412" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="bigword" aria-hidden="true">NORTH SHINE</div>
+    <div class="legal"><span>© 2026 North Shine Detailing</span><span><a href="#" style="text-decoration:none">Privacy Policy</a> · <a href="#" style="text-decoration:none">Terms</a></span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/31302074412" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+</a>
+<div class="mbar" id="mbar" aria-hidden="true">
+  <div><div class="k" id="mDur">Estimated · 4.5–6.5 h</div><div class="v" id="mPrice">€189</div></div>
+  <button class="btn btn-led" type="button" id="mBook">Book this</button>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- DATA ---------- */
+const CARS={
+  small:{name:'Small Car',ex:'Polo, Mini, Yaris',add:0,hrs:0,
+    body:'M104 186 L102 156 Q103 138 122 132 L178 122 Q206 88 244 78 Q300 70 362 72 Q402 75 430 104 L470 118 Q492 124 496 146 L498 186 Z',
+    glass:'M192 120 Q220 92 250 86 L356 82 Q388 86 414 116 Z',w:[180,418],r:27,cy:180,hl:[490,134],tl:[106,142],hood:[452,112],seats:[[318,166,.88],[232,166,.84]],door:[[214,150],[386,146]]},
+  sedan:{name:'Sedan',ex:'A4, 3 Series, Passat',add:20,hrs:.5,
+    body:'M66 186 L64 158 Q66 140 88 134 L168 124 Q214 86 268 78 Q322 72 374 76 Q414 80 446 110 L520 122 Q540 128 542 150 L542 186 Z',
+    glass:'M186 122 Q226 90 272 85 L370 84 Q400 88 428 116 Z',w:[158,446],r:29,cy:178,hl:[534,134],tl:[68,142],hood:[486,118],seats:[[340,166,.95],[250,166,.92]],door:[[196,152],[412,146]]},
+  suv:{name:'SUV',ex:'XC90, Q7, X5',add:40,hrs:1,
+    body:'M70 188 L68 124 Q70 104 92 100 L120 98 Q140 60 170 56 L390 54 Q414 56 432 76 L466 104 L516 112 Q536 118 538 140 L540 188 Z',
+    glass:'M132 98 Q148 66 174 63 L384 62 Q404 64 418 80 L440 102 Z',w:[162,442],r:33,cy:174,hl:[530,124],tl:[72,114],hood:[490,108],seats:[[332,160,1.05],[226,160,1.02]],door:[[204,148],[398,144]]},
+  lux:{name:'Large / Luxury',ex:'S-Class, 7 Series, Panamera',add:70,hrs:1.5,
+    body:'M42 186 L40 158 Q42 140 66 134 L182 122 Q240 82 300 76 Q360 70 410 76 Q452 82 486 114 L558 126 Q576 132 578 152 L578 186 Z',
+    glass:'M200 120 Q246 88 302 83 L404 82 Q440 86 466 116 Z',w:[146,474],r:31,cy:176,hl:[570,138],tl:[44,142],hood:[524,122],seats:[[376,166,.98],[276,166,.95]],door:[[184,152],[438,146]]}
+};
+const PKGS={
+  essential:{name:'Essential',price:79,h:[2,3],gu:78,items:['Exterior hand wash','Wheel cleaning','Interior vacuum','Dashboard cleaning']},
+  premium:{name:'Premium',price:169,h:[4,6],gu:86,badge:'MOST POPULAR',items:['Everything from Essential','Deep interior cleaning','Seat cleaning','Paint decontamination','Protection']},
+  signature:{name:'Signature',price:299,h:[8,10],gu:92,items:['Full interior detailing','Full exterior detailing','Paint correction','Premium protection','Final finishing']}
+};
+const IC={
+  ceramic:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  headlight:'<path d="M4 8h5a5 5 0 0 1 0 10H4z"/><path d="M14 9h6M14 13h6M14 17h6"/>',
+  engine:'<path d="M4 10h3l2-3h6v3h3v3h2v4h-2v2h-4l-2 2H7v-3H4z"/>',
+  pet:'<circle cx="6" cy="9" r="1.8"/><circle cx="10" cy="5.5" r="1.8"/><circle cx="14" cy="5.5" r="1.8"/><circle cx="18" cy="9" r="1.8"/><path d="M12 11c-3 0-5 4-5 6s2 3 5 3 5-1 5-3-2-6-5-6z"/>',
+  leather:'<path d="M7 20V9a5 5 0 0 1 10 0v11"/><path d="M5 20h14M9 13h6"/>',
+  odor:'<path d="M4 9c3-2 5 2 8 0s5-2 8 0M4 14c3-2 5 2 8 0s5-2 8 0M4 19c3-2 5 2 8 0s5-2 8 0"/>',
+  correction:'<path d="M3 17l8-8 4 4-8 8H3z"/><path d="M14 4l6 6M17 3l1 2M21 7l-2 1"/>',
+  wheel:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5V9M12 15v5.5M3.5 12H9M15 12h5.5"/>'
+};
+const EXTRAS=[
+  {id:'ceramic',name:'Ceramic Coating',sub:'9H · up to 5 years',price:250,h:4,fx:'ceramic',ic:'ceramic',gu:4},
+  {id:'headlight',name:'Headlight Restoration',sub:'Clear, UV sealed',price:60,h:1,fx:'lights',ic:'headlight'},
+  {id:'engine',name:'Engine Bay Cleaning',sub:'Steam + dressing',price:45,h:1,fx:'engine',ic:'engine',view:'ext'},
+  {id:'pet',name:'Pet Hair Removal',sub:'Carpets and seats',price:40,h:.75,fx:'pet',ic:'pet',view:'int'},
+  {id:'leather',name:'Leather Treatment',sub:'Clean + condition',price:55,h:1,fx:'leather',ic:'leather',view:'int'},
+  {id:'odor',name:'Odor Removal',sub:'Ozone treatment',price:40,h:1,fx:'odor',ic:'odor',view:'int'},
+  {id:'correction',name:'Paint Correction',sub:'Swirls and scratches',price:150,h:3,fx:'correction',ic:'correction',gu:3,view:'ext'},
+  {id:'wheels',name:'Wheel Ceramic Protection',sub:'Rims and calipers',price:80,h:1.5,fx:'wheels',ic:'wheel',view:'ext'}
+];
+EXTRAS.find(e=>e.id==='ceramic').view='ext';EXTRAS.find(e=>e.id==='headlight').view='ext';
+const FXLABEL={ceramic:'CERAMIC GLOSS',lights:'HEADLIGHTS CLEAR',engine:'ENGINE BAY',pet:'PET HAIR',leather:'LEATHER',odor:'ODOR',correction:'PAINT CORRECTION',wheels:'WHEEL CERAMIC'};
+
+const state={car:'sedan',pkg:'premium',extras:new Set(),view:'ext',touched:new Set([1,2])};
+const eur=n=>'€'+Math.round(n).toLocaleString('en-US');
+
+/* ---------- CAR SVG ---------- */
+let uidN=0;
+function carSVG(k,opts={}){
+  const s=CARS[k],u='c'+(++uidN),mini=!!opts.mini;
+  const [hx,hy]=s.hl,[tx,ty]=s.tl;
+  const wheels=s.w.map(x=>{
+    const r=s.r,ri=r*.66;
+    let spokes='';for(let i=0;i<5;i++){const a=i*72*Math.PI/180;spokes+=`<line x1="${x}" y1="${s.cy}" x2="${(x+Math.cos(a)*ri*.92).toFixed(1)}" y2="${(s.cy+Math.sin(a)*ri*.92).toFixed(1)}"/>`}
+    return `<g class="wheel"><circle cx="${x}" cy="${s.cy}" r="${r}" fill="#020305" stroke="#1d2836" stroke-width="1"/>
+      <circle cx="${x}" cy="${s.cy}" r="${ri}" fill="url(#rf${u})"/>
+      <g stroke="#7f9cbd" stroke-opacity=".55" stroke-width="2.2">${spokes}</g>
+      <circle cx="${x}" cy="${s.cy}" r="${r*.14}" fill="#0b1018" stroke="#8fb0d4" stroke-opacity=".5"/>
+      ${mini?'':`<circle class="wring" cx="${x}" cy="${s.cy}" r="${r-1.5}" fill="none" stroke="#dff0ff" stroke-width="2.4" filter="url(#gl${u})"/>`}</g>`}).join('');
+  const shadowRx=(s.w[1]-s.w[0])/2+s.r+40,shadowCx=(s.w[0]+s.w[1])/2;
+  const ground=s.cy+s.r;
+  const door=`<path d="M${s.door[0][0]} ${s.door[0][1]} L${s.door[1][0]} ${s.door[1][1]}" stroke="#8fb0d4" stroke-opacity=".22" stroke-width="1" fill="none"/>`;
+  const defs=`<defs>
+    <linearGradient id="bg${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#243245"/><stop offset=".5" stop-color="#0c121b"/><stop offset="1" stop-color="#04060a"/></linearGradient>
+    <linearGradient id="rim${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3f1ff" stop-opacity=".95"/><stop offset=".45" stop-color="#8fb0d4" stop-opacity=".35"/><stop offset=".8" stop-color="#8fb0d4" stop-opacity="0"/></linearGradient>
+    <radialGradient id="rf${u}"><stop offset="0" stop-color="#1a2532"/><stop offset="1" stop-color="#06090e"/></radialGradient>
+    <linearGradient id="gs${u}" x1="0" y1="0" x2="1" y2=".35"><stop offset=".25" stop-color="#dff0ff" stop-opacity="0"/><stop offset=".45" stop-color="#dff0ff" stop-opacity=".5"/><stop offset=".52" stop-color="#ffffff" stop-opacity=".75"/><stop offset=".6" stop-color="#dff0ff" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-.6 0;.6 0;-.6 0" dur="7s" repeatCount="indefinite"/></linearGradient>
+    <linearGradient id="sw${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cfe6ff" stop-opacity="0"/><stop offset=".5" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#cfe6ff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="bm${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cfe6ff" stop-opacity=".55"/><stop offset="1" stop-color="#cfe6ff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="lt${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5536"/><stop offset="1" stop-color="#3a2618"/></linearGradient>
+    <linearGradient id="fl${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="fm${u}"><rect x="0" y="${ground}" width="600" height="120" fill="url(#fl${u})"/></mask>
+    <filter id="gl${u}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="bl${u}"><feGaussianBlur stdDeviation="7"/></filter>
+    <mask id="m${u}"><rect width="600" height="260" fill="#fff"/>${s.w.map(x=>`<circle cx="${x}" cy="${s.cy}" r="${s.r+6}" fill="#000"/>`).join('')}</mask>
+    <clipPath id="cp${u}"><path d="${s.body}"/></clipPath>
+  </defs>`;
+  const ext=`<g class="ext" id="x${u}">
+    <g mask="url(#m${u})">
+      <path d="${s.body}" fill="url(#bg${u})"/>
+      ${mini?'':`<path class="gloss" d="${s.body}" fill="url(#gs${u})"/>
+      <g clip-path="url(#cp${u})"><rect class="sweep" x="0" y="40" width="70" height="170" fill="url(#sw${u})"/></g>`}
+      <path d="${s.body}" fill="none" stroke="url(#rim${u})" stroke-width="1.6"/>
+    </g>
+    <path d="${s.glass}" fill="#070b11" stroke="#8fb0d4" stroke-opacity=".35" stroke-width=".8"/>
+    ${mini?'':`<path class="gloss" d="${s.glass}" fill="url(#gs${u})" opacity=".4"/>`}
+    ${door}${wheels}
+    <path d="M${tx} ${ty} l10 -1" stroke="#8fb0d4" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+    <g class="hl">
+      ${mini?'':`<path class="beam" d="M${hx} ${hy-4} L${hx+150} ${hy-34} L${hx+150} ${hy+40} Z" fill="url(#bm${u})" filter="url(#bl${u})"/>
+      <ellipse class="hl-glow" cx="${hx-6}" cy="${hy}" rx="20" ry="7" fill="#cfe6ff" filter="url(#bl${u})"/>`}
+      <path class="hl-line" d="M${hx-26} ${hy+3} Q${hx-12} ${hy} ${hx+2} ${hy-3}" stroke="#dff0ff" stroke-width="2" stroke-linecap="round" fill="none" ${mini?'':`filter="url(#gl${u})"`}/>
+    </g>
+    ${mini?'':`<g class="eng"><circle class="ring" cx="${s.hood[0]}" cy="${s.hood[1]}" r="4" fill="none" stroke="#cfe6ff" stroke-width="1"/><circle cx="${s.hood[0]}" cy="${s.hood[1]}" r="3.5" fill="#cfe6ff" filter="url(#gl${u})"/>
+      <path d="M${s.hood[0]} ${s.hood[1]-6} L${s.hood[0]-14} ${s.hood[1]-34} L${s.hood[0]-74} ${s.hood[1]-34}" stroke="#cfe6ff" stroke-opacity=".6" fill="none"/>
+      <text x="${s.hood[0]-74}" y="${s.hood[1]-40}" fill="#cfe6ff" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.5">ENGINE BAY · CLEANED</text></g>`}
+  </g>`;
+  let int='';
+  if(!mini){
+    const seat=(x,y,sc,i)=>`<g transform="translate(${x} ${y}) scale(${sc})">
+      <path d="M0 0 C-6 -20 -9 -44 -3 -62 C0 -70 11 -70 14 -62 C12 -42 14 -20 20 -4 Z" fill="url(#lt${u})" stroke="#cfe6ff" stroke-opacity=".18"/>
+      <path d="M1 -74 Q6 -84 13 -74 Q14 -68 8 -68 Q1 -68 1 -74 Z" fill="url(#lt${u})"/>
+      <path d="M4 -2 L50 -7 Q60 -7 60 2 L58 8 L4 8 Z" fill="url(#lt${u})" stroke="#cfe6ff" stroke-opacity=".18"/>
+      <path class="sheen" d="M3 -56 C0 -40 2 -22 8 -6" stroke="#ffd9b0" stroke-opacity=".8" stroke-width="2" fill="none" filter="url(#gl${u})"/>
+      <path class="sheen" d="M10 -4 L50 -8" stroke="#ffd9b0" stroke-opacity=".7" stroke-width="1.6" fill="none" filter="url(#gl${u})"/></g>`;
+    const [fx,fy,fs]=s.seats[0];
+    int=`<g class="int">
+      <path d="${s.body}" fill="#060a10" stroke="#8fb0d4" stroke-opacity=".45" stroke-width="1.2"/>
+      <path d="${s.glass}" fill="none" stroke="#8fb0d4" stroke-opacity=".25" stroke-dasharray="3 4"/>
+      <path d="M${s.w[0]+s.r+6} ${fy+10} L${s.w[1]-s.r-6} ${fy+10}" stroke="#8fb0d4" stroke-opacity=".3"/>
+      ${s.seats.map((q,i)=>seat(q[0],q[1],q[2],i)).join('')}
+      <path d="M${fx+66*fs} ${fy-40*fs} Q${fx+92*fs} ${fy-52*fs} ${fx+118*fs} ${fy-44*fs} L${fx+120*fs} ${fy-28*fs} L${fx+74*fs} ${fy-26*fs} Z" fill="#0d141d" stroke="#8fb0d4" stroke-opacity=".4"/>
+      <ellipse cx="${fx+68*fs}" cy="${fy-46*fs}" rx="4" ry="15" transform="rotate(-24 ${fx+68*fs} ${fy-46*fs})" fill="none" stroke="#cfe6ff" stroke-opacity=".7" stroke-width="2"/>
+      ${s.w.map(x=>`<circle cx="${x}" cy="${s.cy}" r="${s.r}" fill="none" stroke="#8fb0d4" stroke-opacity=".3"/>`).join('')}
+      <g font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.5" fill="#cfe6ff">
+        <text class="int-tag tag-leather" x="${fx-30}" y="${fy-96*fs}">LEATHER · CONDITIONED</text>
+        <text class="int-tag tag-pet" x="${s.seats[1][0]-60}" y="${fy+28}">PET HAIR · REMOVED</text>
+        <text class="int-tag tag-odor" x="${s.seats[1][0]+60}" y="${fy+28}">ODOR · NEUTRAL</text>
+      </g></g>`;
+  }
+  const refl=mini?'':`<g mask="url(#fm${u})"><use href="#x${u}" transform="translate(0 ${ground*2}) scale(1 -1)" opacity=".5"/></g>`;
+  return `<svg viewBox="${mini?'20 40 580 180':'0 30 610 230'}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${defs}
+    <ellipse cx="${shadowCx}" cy="${ground}" rx="${shadowRx}" ry="${mini?5:9}" fill="#000" opacity=".8" filter="${mini?'':`url(#bl${u})`}"/>
+    ${refl}${ext}${int}</svg>`;
+}
+
+/* ---------- BUILD CONTROLS ---------- */
+const carsEl=$('#cars');
+carsEl.innerHTML=Object.entries(CARS).map(([k,c])=>`<button type="button" class="opt car-opt" role="radio" data-car="${k}" aria-checked="false">${carSVG(k,{mini:true})}<span class="t">${c.name}</span><span class="s">${c.ex}</span><span class="p">${c.add?'+'+eur(c.add):'Base price'}</span></button>`).join('');
+const pkgsEl=$('#pkgs');
+pkgsEl.innerHTML=Object.entries(PKGS).map(([k,p])=>`<button type="button" class="opt pkg" role="radio" data-pkg="${k}" aria-checked="false"><span class="top"><span class="name">${p.name.toUpperCase()}</span>${p.badge?`<span class="badge">${p.badge}</span>`:''}</span><ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul><span class="price"><small>FROM</small>${eur(p.price)}</span><span class="dur">${p.h[0]}–${p.h[1]} hours</span></button>`).join('');
+const exEl=$('#extras');
+exEl.innerHTML=EXTRAS.map(e=>`<button type="button" class="opt ex" data-ex="${e.id}" aria-pressed="false"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true">${IC[e.ic]}</svg></span><span class="t">${e.name}<small>${e.sub}</small></span><span class="pr">+${eur(e.price)}<span class="sw"></span></span></button>`).join('');
+const check='<svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg>';
+$('#tiers').innerHTML=Object.entries(PKGS).map(([k,p])=>`<article class="tier rv ${k==='premium'?'hot':''}"><div class="top"><span class="nm">${p.name.toUpperCase()}</span>${p.badge?`<span class="badge">${p.badge}</span>`:''}</div><div class="pr"><small>FROM</small><b>${eur(p.price)}</b></div><ul>${p.items.map(i=>`<li>${check}<span>${i}</span></li>`).join('')}</ul><div style="display:grid;gap:16px"><div class="meta"><span>DURATION</span><span>${p.h[0]}–${p.h[1]} hours</span></div><button class="btn ${k==='premium'?'btn-led':''}" type="button" data-tierbook="${k}">Book now</button></div></article>`).join('');
+
+/* ---------- STAGE ---------- */
+const wrap=$('#carwrap'),stage=$('#stage');
+function renderCar(animate){
+  const layer=document.createElement('div');
+  layer.className='layer'+(animate?' enter':'');
+  layer.innerHTML=carSVG(state.car);
+  const old=[...wrap.children];
+  wrap.appendChild(layer);
+  if(animate){requestAnimationFrame(()=>requestAnimationFrame(()=>layer.classList.remove('enter')));
+    old.forEach(o=>{o.classList.add('leave');setTimeout(()=>o.remove(),800)})}
+  else old.forEach(o=>o.remove());
+  $('#stageName').textContent=CARS[state.car].name;
+}
+function setView(v){
+  state.view=v;stage.dataset.view=v;
+  $$('.viewtog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
+}
+$$('.viewtog button').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+
+/* ---------- COMPUTE + RENDER ---------- */
+function compute(){
+  const c=CARS[state.car],p=PKGS[state.pkg];
+  const ex=EXTRAS.filter(e=>state.extras.has(e.id));
+  const price=p.price+c.add+ex.reduce((a,e)=>a+e.price,0);
+  const eh=ex.reduce((a,e)=>a+e.h,0);
+  const r=x=>Math.round(x*2)/2;
+  const lo=r(p.h[0]+c.hrs+eh),hi=r(p.h[1]+c.hrs+eh);
+  const gu=Math.min(97,p.gu+ex.reduce((a,e)=>a+(e.gu||0),0));
+  return {c,p,ex,price,lo,hi,gu};
+}
+const fmtH=x=>(x%1?x.toFixed(1):x);
+function durText(lo,hi){return `${fmtH(lo)}–${fmtH(hi)} hours`+(hi>10?' · overnight':'')}
+let shown=0,tween;
+function animPrice(to){
+  const els=[$('#sPrice'),$('#mPrice')];
+  const from=shown;if(from===to)return;
+  cancelAnimationFrame(tween);const t0=performance.now(),D=650;
+  $('#sPrice').classList.remove('bump');void $('#sPrice').offsetWidth;$('#sPrice').classList.add('bump');
+  const step=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,3);const v=from+(to-from)*e;shown=v;els.forEach(el=>el.textContent=eur(v));if(k<1)tween=requestAnimationFrame(step);else shown=to};
+  tween=requestAnimationFrame(step);
+}
+function render(){
+  const R=compute();
+  $$('[data-car]').forEach(b=>b.setAttribute('aria-checked',b.dataset.car===state.car));
+  $$('[data-pkg]').forEach(b=>b.setAttribute('aria-checked',b.dataset.pkg===state.pkg));
+  $$('[data-ex]').forEach(b=>b.setAttribute('aria-pressed',state.extras.has(b.dataset.ex)));
+  // fx classes
+  stage.className='stage '+R.ex.map(e=>'fx-'+e.fx).join(' ');
+  $('#fxchips').innerHTML=R.ex.map(e=>`<span>${FXLABEL[e.fx]}</span>`).join('');
+  $('#gu').textContent=R.gu;$('#guFill').style.transform=`scaleX(${(R.gu-50)/50})`;
+  // summary
+  $('#sCar').textContent=R.c.name+(R.c.add?` (+${eur(R.c.add)})`:'');
+  $('#sPkg').textContent=`${R.p.name} · ${eur(R.p.price)}`;
+  $('#sEx').innerHTML=R.ex.length?R.ex.map(e=>`<div class="x"><span>${e.name}</span><span>+${eur(e.price)}</span></div>`).join(''):'<span class="none">None selected</span>';
+  $('#sDur').textContent=durText(R.lo,R.hi);
+  $('#mDur').textContent=`Estimate · ${fmtH(R.lo)}–${fmtH(R.hi)} h`;
+  animPrice(R.price);
+  // progress
+  if(state.extras.size)state.touched.add(3);
+  $$('#progress li').forEach(li=>li.classList.toggle('done',state.touched.has(+li.dataset.s)||(+li.dataset.s===4&&state.touched.has(3))));
+  return R;
+}
+carsEl.addEventListener('click',e=>{const b=e.target.closest('[data-car]');if(!b||b.dataset.car===state.car)return;state.car=b.dataset.car;state.touched.add(1);renderCar(true);render()});
+pkgsEl.addEventListener('click',e=>{const b=e.target.closest('[data-pkg]');if(!b)return;state.pkg=b.dataset.pkg;state.touched.add(2);render()});
+exEl.addEventListener('click',e=>{const b=e.target.closest('[data-ex]');if(!b)return;const id=b.dataset.ex,x=EXTRAS.find(q=>q.id===id);
+  if(state.extras.has(id))state.extras.delete(id);else{state.extras.add(id);if(x.view)setView(x.view)}render()});
+// arrow keys for radiogroups
+[carsEl,pkgsEl].forEach(g=>g.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key))return;e.preventDefault();const bs=[...g.children],i=bs.indexOf(document.activeElement),n=bs[(i+(e.key==='ArrowRight'||e.key==='ArrowDown'?1:-1)+bs.length)%bs.length];n.focus();n.click()}));
+
+renderCar(false);render();
+
+/* progress: active step on scroll + click */
+$$('#progress button').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.go);t.scrollIntoView({behavior:'smooth',block:b.dataset.go==='summary'?'center':'start'})}));
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const s=en.target.dataset.s;$$('#progress li').forEach(li=>li.classList.toggle('active',li.dataset.s===s))}}),{rootMargin:'-45% 0px -45% 0px'});
+  $$('.step,#summary').forEach(el=>io.observe(el));
+}
+
+/* ---------- BOOKING HANDOFF ---------- */
+let fromCalc=false;
+function toBooking(){
+  const R=compute();fromCalc=true;
+  $('#fService').value=state.pkg;$('#fCar').value=state.car;
+  $('#fExtras').value=R.ex.map(e=>e.name).join(', ');$('#fEst').value=R.price;
+  $('#cCar').textContent=R.c.name;$('#cPkg').textContent=R.p.name;
+  $('#cEx').textContent=R.ex.length?R.ex.map(e=>e.name).join(', '):'None';
+  $('#cTot').textContent=eur(R.price);$('#cfg').hidden=false;
+  ['fService','fCar'].forEach(id=>document.getElementById(id).closest('.f').classList.remove('bad'));
+  $('#book').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>$('#fDate').focus({preventScroll:true}),900);
+}
+$('#bookPkg').addEventListener('click',toBooking);$('#mBook').addEventListener('click',toBooking);
+$('#cEdit').addEventListener('click',()=>$('#calculator').scrollIntoView({behavior:'smooth'}));
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-tierbook]');if(t){state.pkg=t.dataset.tierbook;state.touched.add(2);render();toBooking();return}
+  const g=e.target.closest('[data-goto]');if(g){const [kind,id]=g.dataset.goto.split(':');
+    if(kind==='pkg'){state.pkg=id;state.touched.add(2)}else{state.extras.add(id);const x=EXTRAS.find(q=>q.id===id);if(x.view)setView(x.view)}
+    render();document.getElementById(kind==='pkg'?'step-pkg':'step-ex').scrollIntoView({behavior:'smooth',block:'start'})}
+});
+
+/* ---------- FORM ---------- */
+const fDate=$('#fDate');const today=new Date();fDate.min=today.toISOString().slice(0,10);
+$('#bf').addEventListener('submit',e=>{
+  e.preventDefault();let ok=true;
+  const rules={fService:v=>v||'Choose a service.',fCar:v=>v||'Choose your car type.',fDate:v=>v||'Pick a date.',fTime:v=>v||'Pick a time.',fName:v=>v.trim().length>1||'Enter your name.',fPhone:v=>/^[+\d][\d\s()-]{7,}$/.test(v.trim())||'Enter a phone number, for example +31 6 1234 5678.',fEmail:v=>/^\S+@\S+\.\S+$/.test(v.trim())||'Enter an email like name@example.com.'};
+  let first;
+  for(const [id,fn] of Object.entries(rules)){const el=document.getElementById(id),r=fn(el.value),f=el.closest('.f');const bad=r!==true&&typeof r==='string';f.classList.toggle('bad',bad);f.querySelector('.err').textContent=bad?r:'';if(bad){ok=false;first=first||el}}
+  if(!ok){first.focus();return}
+  const name=$('#fName').value.trim().split(' ')[0];
+  const d=new Date($('#fDate').value+'T12:00');
+  const svc=$('#fService').selectedOptions[0].text;
+  $('#doneH').textContent=`Thank you, ${name}.`;
+  $('#doneP').textContent=`${svc} for your ${$('#fCar').selectedOptions[0].text.toLowerCase()} on ${d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})} at ${$('#fTime').value}.`+(fromCalc&&$('#fService').value===state.pkg?` Estimated ${eur(compute().price)}.`:'')+` We will confirm by phone or WhatsApp.`;
+  $('#bf').hidden=true;$('#done').hidden=false;
+});
+$('#again').addEventListener('click',()=>{$('#bf').reset();$('#bf').hidden=false;$('#done').hidden=true});
+$$('#bf input,#bf select').forEach(el=>el.addEventListener('input',()=>{const f=el.closest('.f');if(f.classList.contains('bad')){f.classList.remove('bad');f.querySelector('.err').textContent=''}}));
+
+/* ---------- BEFORE/AFTER ---------- */
+const ba=$('#ba'),rng=$('#baRange');let drag=false;
+const setPos=p=>{p=Math.max(0,Math.min(100,p));ba.style.setProperty('--pos',p+'%');rng.value=p};
+const fromEvt=e=>{const r=ba.getBoundingClientRect();return (e.clientX-r.left)/r.width*100};
+ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture(e.pointerId);setPos(fromEvt(e))});
+ba.addEventListener('pointermove',e=>{if(drag)setPos(fromEvt(e))});
+['pointerup','pointercancel'].forEach(t=>ba.addEventListener(t,()=>drag=false));
+rng.addEventListener('input',()=>setPos(+rng.value));
+
+/* ---------- NAV ---------- */
+const nav=$('#nav');
+const onScroll=()=>{nav.classList.toggle('scrolled',scrollY>40);document.body.classList.toggle('wa-on',scrollY>innerHeight*.5)};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+$('#burger').addEventListener('click',()=>{const o=nav.classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)});
+$$('#sheet a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');$('#burger').setAttribute('aria-expanded','false')}));
+
+/* ---------- COPY ---------- */
+$$('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.copy),t=el.textContent;
+  const done=()=>{b.textContent='COPIED';setTimeout(()=>b.textContent='COPY',1600)};
+  try{navigator.clipboard.writeText(t).then(done,()=>sel(el))}catch(_){sel(el)}}));
+function sel(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+
+/* ---------- HERO VIDEO ---------- */
+const v=$('#heroVideo');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const saveData=navigator.connection&&navigator.connection.saveData;
+if(reduce||saveData){v.removeAttribute('autoplay');v.preload='none'}
+else{
+  v.preload='auto';
+  const show=()=>v.classList.add('ready');
+  v.addEventListener('playing',show,{once:true});
+  v.addEventListener('error',()=>v.remove(),true);
+  const p=v.play();if(p&&p.catch)p.catch(()=>{});
+  if('IntersectionObserver' in window){new IntersectionObserver(([en])=>{if(en.isIntersecting){const q=v.play();q&&q.catch&&q.catch(()=>{})}else v.pause()},{threshold:.05}).observe(v)}
+}
+
+/* ---------- COUNTERS / HOW / MOBILE BAR ---------- */
+if('IntersectionObserver' in window){
+  const cio=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;cio.unobserve(en.target);
+    if(reduce)return;
+    en.target.querySelectorAll('.num').forEach(n=>{const to=+n.dataset.to,dec=+(n.dataset.dec||0),suf=n.dataset.suf,t0=performance.now(),D=1600;
+      const f=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,4);n.innerHTML=(to*e).toFixed(dec)+`<sup>${suf}</sup>`;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}),{threshold:.4});
+  cio.observe($('#stats'));
+  const hio=new IntersectionObserver(([en])=>{if(en.isIntersecting){$('#how').style.setProperty('--p',1);$('#how').classList.add('on');hio.disconnect()}},{threshold:.5});
+  hio.observe($('#how'));
+  let inCalc=false,inBook=false;
+  const upd=()=>document.body.classList.toggle('show-bar',inCalc&&!inBook);
+  new IntersectionObserver(([en])=>{inCalc=en.isIntersecting;upd()},{rootMargin:'-30% 0px -10% 0px'}).observe($('#calculator'));
+  new IntersectionObserver(([en])=>{inBook=en.isIntersecting;upd()}).observe($('#summary'));
+}else{$('#how').style.setProperty('--p',1);$('#how').classList.add('on')}
+
+/* ---------- CINEMATIC PARALLAX ---------- */
+const cb=$('#cineBg');
+if(!reduce&&cb){let tk=false;addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const r=cb.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const k=(r.top+r.height/2-innerHeight/2)/innerHeight;cb.style.transform=`translate3d(0,${(k*-60).toFixed(1)}px,0)`}tk=false})},{passive:true})}
+})();
+</script>
+
+</body>
+</html>
