@@ -484,11 +484,15 @@ footer{border-top:1px solid var(--line);padding-block:64px 40px}
 body.wa-on .wa{opacity:1;pointer-events:auto;transform:none}
 body.wa-on .wa:hover{transform:scale(1.06)}
 .wa svg{width:26px;height:26px;fill:#7ee2a2}
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom,0px));display:none;align-items:center;justify-content:space-between;gap:12px;background:rgba(4,6,10,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line-strong);transform:translateY(110%);transition:transform .45s var(--ease)}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:12px max(var(--gut),calc((100vw - 1320px)/2 + var(--gut))) calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(4,6,10,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line-strong);transform:translateY(110%);transition:transform .45s var(--ease)}
 .mbar .k{font:500 10.5px/1.2 var(--mono);letter-spacing:.12em;color:var(--fg-mute);text-transform:uppercase}
 .mbar .v{font:850 1.6rem/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
 .mbar .btn{--h:46px;padding:0 20px;font-size:12px}
-@media (max-width:1080px){.mbar{display:flex}body.show-bar .mbar{transform:none}body.show-bar .wa{bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
+body.show-bar .mbar{transform:none}
+body.show-bar .wa{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+.mbar .mtxt{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;min-width:0}
+.mbar .msel{font-size:14px;color:var(--fg-dim)}
+@media (max-width:760px){.mbar .msel{display:none}.mbar .mtxt{display:block}}
 
 /* Scroll reveal (progressive: content is fully visible where unsupported) */
 @supports (animation-timeline:view()){
@@ -864,8 +868,8 @@ body.wa-on .wa:hover{transform:scale(1.06)}
 <a class="wa" href="https://wa.me/31302074412" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
 </a>
-<div class="mbar" id="mbar" aria-hidden="true">
-  <div><div class="k" id="mDur">Estimated · 4.5–6.5 h</div><div class="v" id="mPrice">€189</div></div>
+<div class="mbar" id="mbar" aria-label="Your estimate">
+  <div class="mtxt"><div><div class="k" id="mDur">Estimate · 4.5–6.5 h</div><div class="v" id="mPrice">€189</div></div><span class="msel" id="mSel">Sedan · Premium</span></div>
   <button class="btn btn-led" type="button" id="mBook">Book this</button>
 </div>
 
@@ -1066,6 +1070,7 @@ function render(){
   $('#sEx').innerHTML=R.ex.length?R.ex.map(e=>`<div class="x"><span>${e.name}</span><span>+${eur(e.price)}</span></div>`).join(''):'<span class="none">None selected</span>';
   $('#sDur').textContent=durText(R.lo,R.hi);
   $('#mDur').textContent=`Estimate · ${fmtH(R.lo)}–${fmtH(R.hi)} h`;
+  $('#mSel').textContent=`${R.c.name} · ${R.p.name}`+(R.ex.length?` · ${R.ex.length} extra${R.ex.length>1?'s':''}`:'');
   animPrice(R.price);
   // progress
   if(state.extras.size)state.touched.add(3);
@@ -1173,10 +1178,12 @@ if('IntersectionObserver' in window){
   cio.observe($('#stats'));
   const hio=new IntersectionObserver(([en])=>{if(en.isIntersecting){$('#how').style.setProperty('--p',1);$('#how').classList.add('on');hio.disconnect()}},{threshold:.5});
   hio.observe($('#how'));
-  let inCalc=false,inBook=false;
-  const upd=()=>document.body.classList.toggle('show-bar',inCalc&&!inBook);
-  new IntersectionObserver(([en])=>{inCalc=en.isIntersecting;upd()},{rootMargin:'-30% 0px -10% 0px'}).observe($('#calculator'));
-  new IntersectionObserver(([en])=>{inBook=en.isIntersecting;upd()}).observe($('#summary'));
+  let inSum=false,inBook=false;
+  const mq=matchMedia('(max-width:1080px)');
+  const upd=()=>document.body.classList.toggle('show-bar',scrollY>innerHeight*.6&&!inBook&&(mq.matches||!inSum));
+  new IntersectionObserver(([en])=>{inSum=en.isIntersecting;upd()}).observe($('#summary'));
+  new IntersectionObserver(([en])=>{inBook=en.isIntersecting;upd()},{rootMargin:'0px 0px -35% 0px'}).observe($('#book'));
+  addEventListener('scroll',upd,{passive:true});mq.addEventListener&&mq.addEventListener('change',upd);upd();
 }else{$('#how').style.setProperty('--p',1);$('#how').classList.add('on')}
 
 /* ---------- CINEMATIC PARALLAX ---------- */
