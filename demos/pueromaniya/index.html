@@ -32,13 +32,13 @@
 
   <main id="top">
 
-    <!-- ================= 3D: блин пуеру, керується прокруткою ================= -->
-    <section class="scrolly" data-scrolly aria-label="Пуер: від обгортки до чашки">
+    <!-- ================= Перший екран: 3D-блин з реальних фото ================= -->
+    <section class="scrolly hero" aria-label="Pueromaniya — китайський чай">
       <div class="scrolly-sticky">
-        <canvas class="tea3d" data-tea3d aria-hidden="true"></canvas>
-        <img class="tea3d-fallback" src="img/shu-blin-2.webp" alt="Блин шу пуеру на долоні" width="398" height="526">
+        <canvas class="tea3d" data-tea3d aria-label="3D-блин пуеру: натисни й тримай, щоб розкрутити" role="img"></canvas>
+        <img class="tea3d-fallback" src="img/cake-front.webp" alt="Блин шу пуеру в обгортці, 357 г" width="1024" height="1024">
 
-        <div class="stage stage-hero is-on" data-stage="0,0.1">
+        <div class="stage stage-hero is-on">
           <p class="kicker"><span class="seal" aria-hidden="true">普</span> Китайський чай · Юньнань</p>
           <h1 class="hero-title">Чай,<br>який<br><span class="red">заряджає.</span></h1>
           <p class="hero-sub">Шу та шен пуер, улуни, червоний чай і посуд для чайної церемонії. Замовлення — у Direct.</p>
@@ -46,31 +46,9 @@
             <a class="btn btn-red" href="#chai">Обрати чай</a>
             <a class="btn btn-ghost" href="https://ig.me/m/pueromaniya" target="_blank" rel="noopener">Написати в Direct</a>
           </div>
-          <p class="scroll-hint" aria-hidden="true">Гортай <span>↓</span></p>
         </div>
 
-        <div class="stage stage-step" data-stage="0.13,0.4">
-          <p class="step-num">01 / 03</p>
-          <h2 class="step-title">Розгорни.</h2>
-          <p class="step-text">Пуер пресують у блин і загортають у рисовий папір. Під обгорткою — щільне листя і нейфей: ярлик виробника, впресований просто в чай.</p>
-          <p class="step-meta">Класичний блин — 357 г</p>
-        </div>
-
-        <div class="stage stage-step" data-stage="0.43,0.7">
-          <p class="step-num">02 / 03</p>
-          <h2 class="step-title">Відламай.</h2>
-          <p class="step-text">Спеціальним ножем для пуеру відділи шматочок, намагаючись не кришити листя. Одного блину вистачає на десятки заварювань.</p>
-          <p class="step-meta">Ніж для пуеру — у розділі посуду</p>
-        </div>
-
-        <div class="stage stage-step" data-stage="0.73,1.01">
-          <p class="step-num">03 / 03</p>
-          <h2 class="step-title">Завари.</h2>
-          <p class="step-text">5–7 г на 100 мл, окріп, короткі проливи по 10–20 секунд. Один шматочок витримує 8–10 заварювань.</p>
-          <a class="btn btn-red" href="#chai">До каталогу</a>
-        </div>
-
-        <div class="progress" aria-hidden="true"><span data-progress></span></div>
+        <p class="spin-hint" data-spin-hint aria-hidden="true"><span class="spin-dot"></span>Натисни й тримай блин — розкрутиться</p>
       </div>
     </section>
 

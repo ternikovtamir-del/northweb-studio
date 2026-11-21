@@ -90,7 +90,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-light); }
 .kicker.dark { color: var(--muted); }
 .seal { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 4px; background: var(--cinnabar); color: #fff; font-size: 16px; letter-spacing: 0; font-family: "Noto Serif CJK TC", "Songti SC", "SimSun", serif; }
-.hero-title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(46px, 6.6vw, 108px); line-height: .92; letter-spacing: -.02em; margin: 22px 0 26px; }
+.hero-title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(44px, 6vw, 100px); line-height: .92; letter-spacing: -.02em; margin: 22px 0 26px; }
 .hero-sub { max-width: 42ch; font-size: clamp(16px, 1.4vw, 19px); color: rgba(241, 238, 231, .82); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .scroll-hint { margin-top: 40px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-light); }
@@ -240,3 +240,32 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .insta-label { white-space: nowrap; }
 .card-btn { margin-top: auto; }
 .card-text { margin-bottom: 6px; }
+
+/* ---------- Перший екран з 3D-блином (замість сцени на прокрутці) ---------- */
+.scrolly.hero { height: 100vh; height: 100svh; min-height: 620px; }
+.hero .scrolly-sticky { position: relative; height: 100%; }
+.hero .tea3d { touch-action: pan-y; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.spin-hint {
+  position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(32px, 7vh, 80px);
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-light);
+  pointer-events: none; transition: opacity .8s ease;
+}
+.spin-hint.is-used { opacity: 0; }
+.spin-dot { width: 8px; height: 8px; border-radius: 50%; background: #39ff6a; box-shadow: 0 0 12px #39ff6a; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.no-webgl .spin-hint { display: none; }
+@media (max-width: 700px) {
+  .spin-hint { right: auto; left: 50%; transform: translateX(-50%); bottom: auto; top: calc(64px + 46vh); white-space: nowrap; font-size: 11px; }
+  .scrolly.hero { min-height: 680px; }
+  .no-webgl .tea3d-fallback { top: 90px; right: 50%; transform: translateX(50%); width: 62vw; }
+}
+
+.header .btn { gap: 0; }
+@media (max-width: 700px) {
+  .scrolly.hero { height: max(100svh, 860px); min-height: 0; }
+  .hero .stage-hero { bottom: max(28px, env(safe-area-inset-bottom)); }
+  .spin-hint { top: 460px; }
+  .scrolly-sticky::after { inset: 52% 0 0; }
+}
+@media (max-width: 400px) { .scrolly.hero { height: max(100svh, 820px); } }
