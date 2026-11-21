@@ -72,13 +72,6 @@
   sheet?.addEventListener('click', (e) => { if (e.target === sheet) closeSheet(); });   // клік по тлу
   sheet?.addEventListener('cancel', (e) => { e.preventDefault(); closeSheet(); });     // Esc
 
-  // «Замовити в Direct»: копіюємо назву, щоб її легко вставити в повідомлення
-  sheet?.querySelector('[data-sheet-ask]').addEventListener('click', () => {
-    if (!current) return;
-    const text = `Вітаю! Цікавить: ${current.name}`;
-    navigator.clipboard?.writeText(text).then(() => show('Назву скопійовано — встав її в повідомлення в Direct')).catch(() => {});
-  });
-
   // Пряме посилання на товар: сторінка#id відкриває опис
   const openFromHash = () => {
     const id = decodeURIComponent(location.hash.slice(1));
