@@ -39,14 +39,14 @@ async function start3D() {
   const load = (src) => new Promise((res, rej) => loader.load(src, res, undefined, rej));
   let front, back, side;
   try {
-    [front, back, side] = await Promise.all([load('img/cake-front.webp?v=3'), load('img/cake-back.webp'), load('img/cake-side.webp')]);
+    [front, back, side] = await Promise.all([load('img/cake-front.webp?v=3'), load('img/cake-back.webp?v=2'), load('img/cake-side.webp?v=2')]);
   } catch (e) {
     document.documentElement.classList.add('no-webgl');
     return;
   }
   const aniso = renderer.capabilities.getMaxAnisotropy();
   [front, back, side].forEach((t) => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = Math.min(8, aniso); });
-  side.wrapS = THREE.RepeatWrapping;
+  side.wrapS = THREE.RepeatWrapping; side.repeat.set(2, 1);
 
   /* Геометрія: лицевий бік (злегка опуклий), заокруглений борт, зворот */
   const R = 1, H = 0.17, EDGE = 0.07;
@@ -54,7 +54,9 @@ async function start3D() {
   const capR = R - EDGE;
   const dome = (r) => 0.035 * (1 - (r / R) ** 2);
 
-  function cap(sign, flipU) {
+  // Лицевий бік: уся обгортка разом з червоним колом і полем паперу вміщується на пласку частину
+  const FRONT_K = (498 / 1024) / capR;
+  function cap(sign, flipU, k = TEX_R) {
     const rings = 24, segs = 96, pos = [], uv = [], idx = [];
     for (let i = 0; i <= rings; i++) {
       const r = (i / rings) * capR;
@@ -63,7 +65,7 @@ async function start3D() {
         const a = (j / segs) * Math.PI * 2;
         const x = Math.cos(a) * r, z = Math.sin(a) * r;
         pos.push(x, y, z);
-        uv.push(0.5 + (flipU ? -x : x) * TEX_R, 0.5 - z * TEX_R);
+        uv.push(0.5 + (flipU ? -x : x) * k, 0.5 - z * k);
       }
     }
     for (let i = 0; i < rings; i++) for (let j = 0; j < segs; j++) {
@@ -102,7 +104,7 @@ async function start3D() {
   }
 
   const mat = (map) => new THREE.MeshStandardMaterial({ map, roughness: 0.88, metalness: 0, side: THREE.DoubleSide });
-  const faceFront = new THREE.Mesh(cap(1, false), mat(front));
+  const faceFront = new THREE.Mesh(cap(1, false, FRONT_K), mat(front));
   const faceBack = new THREE.Mesh(cap(-1, true), mat(back));
   const edge = new THREE.Mesh(rim(), mat(side));
   const cake = new THREE.Group();
