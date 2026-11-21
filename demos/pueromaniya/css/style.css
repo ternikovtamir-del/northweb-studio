@@ -269,3 +269,67 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .scrolly-sticky::after { inset: 52% 0 0; }
 }
 @media (max-width: 400px) { .scrolly.hero { height: max(100svh, 820px); } }
+
+/* ---------- Картка товару: лише фото + «Опис товару» ---------- */
+.card-photo { display: block; width: 100%; padding: 0; border-radius: 6px; cursor: pointer; text-align: left; }
+.card-photo figure { margin-bottom: 0; }
+.ware .card-photo figure { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 6px; background: #DADAD7; }
+.card-photo:hover img { transform: scale(1.04); }
+.ware img { transition: transform .8s var(--ease); }
+.card-link {
+  align-self: start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 4px;
+  font-weight: 600; font-size: 15px; color: var(--ink); border-bottom: 1px solid var(--ink); padding: 0; min-height: 40px;
+  transition: color .2s, border-color .2s;
+}
+.card-link span { transition: transform .3s var(--ease); }
+.card-link:hover { color: var(--cinnabar); border-color: var(--cinnabar); }
+.card-link:hover span { transform: translateX(4px); }
+.grid { row-gap: clamp(24px, 3vw, 40px); }
+@media (max-width: 600px) { .card-link { font-size: 14px; } }
+
+/* ---------- Вікно з описом ---------- */
+.sheet {
+  width: min(980px, calc(100% - 32px)); max-width: none; max-height: min(86vh, 760px);
+  padding: 0; border: 0; border-radius: 12px; background: var(--paper); color: var(--ink);
+  overflow: hidden; overscroll-behavior: contain;
+}
+.sheet::backdrop { background: rgba(13, 12, 11, .6); }
+.sheet[open] { animation: sheetIn .35s var(--ease); }
+.sheet.is-closing { animation: sheetOut .22s ease forwards; }
+@keyframes sheetIn { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+@keyframes sheetOut { to { opacity: 0; transform: translateY(16px); } }
+.sheet-inner { position: relative; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); max-height: inherit; overflow-y: auto; }
+.sheet-photo { background: #D8D7D3; }
+.sheet-photo img { width: 100%; height: 100%; object-fit: cover; min-height: 100%; }
+.sheet-body { padding: clamp(24px, 3.4vw, 44px); display: grid; gap: 14px; align-content: start; }
+.sheet-title { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.1; letter-spacing: -.01em; }
+.sheet-facts div { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sheet-facts dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); flex: none; }
+.sheet-facts dd { margin: 0; font-weight: 600; }
+.sheet-about { color: var(--muted); font-size: 16px; }
+.sheet-h { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 6px; }
+.sheet-props { display: grid; gap: 8px; }
+.sheet-props li { position: relative; padding-left: 22px; font-size: 16px; }
+.sheet-props li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--cinnabar); transform: rotate(45deg); }
+.sheet-brew { font-size: 15px; background: var(--studio); border-radius: 8px; padding: 12px 14px; }
+.sheet-cta { justify-self: start; margin-top: 8px; }
+.sheet-close {
+  position: absolute; right: 12px; top: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(241, 238, 231, .92); color: var(--ink); font-size: 26px; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.sheet-close:hover { background: var(--ink); color: var(--paper); }
+body.sheet-open { overflow: hidden; }
+
+@media (max-width: 700px) {
+  /* шторка знизу на телефоні */
+  .sheet { width: 100%; max-width: 100%; margin: auto 0 0; max-height: 90vh; max-height: 90dvh; border-radius: 16px 16px 0 0; }
+  .sheet[open] { animation: sheetUp .38s var(--ease); }
+  .sheet.is-closing { animation: sheetDown .22s ease forwards; }
+  @keyframes sheetUp { from { transform: translateY(100%); } }
+  @keyframes sheetDown { to { transform: translateY(100%); } }
+  .sheet-inner { grid-template-columns: 1fr; }
+  .sheet-photo { aspect-ratio: 16 / 11; overflow: hidden; }
+  .sheet-body { padding: 22px 20px calc(24px + env(safe-area-inset-bottom)); }
+  .sheet-cta { justify-self: stretch; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet[open], .sheet.is-closing { animation: none; } }
