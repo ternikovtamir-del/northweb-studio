@@ -90,7 +90,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-light); }
 .kicker.dark { color: var(--muted); }
 .seal { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 4px; background: var(--cinnabar); color: #fff; font-size: 16px; letter-spacing: 0; font-family: "Noto Serif CJK TC", "Songti SC", "SimSun", serif; }
-.hero-title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(44px, 6vw, 100px); line-height: .92; letter-spacing: -.02em; margin: 22px 0 26px; }
+.hero-title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(44px, 5.4vw, 88px); line-height: .92; letter-spacing: -.02em; margin: 22px 0 26px; }
 .hero-sub { max-width: 42ch; font-size: clamp(16px, 1.4vw, 19px); color: rgba(241, 238, 231, .82); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .scroll-hint { margin-top: 40px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-light); }
@@ -334,3 +334,10 @@ body.sheet-open { overflow: hidden; }
   .sheet-cta { justify-self: stretch; }
 }
 @media (prefers-reduced-motion: reduce) { .sheet[open], .sheet.is-closing { animation: none; } }
+
+/* Великі заголовки у двоколонкових блоках: розмір від ширини колонки, щоб не налазили на сусідню */
+@media (min-width: 960px) {
+  .energy-grid, .order-grid { container-type: inline-size; }
+  .energy-title { font-size: min(116px, calc((100cqi - 48px) * 0.057)); }
+  #order-title { font-size: min(112px, calc((100cqi - 40px) * 0.044)); }
+}
