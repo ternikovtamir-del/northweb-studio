@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/Unbounded.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="fonts/Onest.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -26,6 +26,10 @@
       <a href="#zavaryty">Як заварити</a>
       <a href="#zamovyty">Замовити</a>
     </nav>
+    <button class="cart-btn" type="button" data-cart-open aria-label="Кошик, товарів: 0">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 8h14l-1.2 11.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 10V7a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="cart-count" data-cart-count hidden>0</span>
+    </button>
     <a class="btn btn-red btn-sm" href="https://ig.me/m/pueromaniya" target="_blank" rel="noopener" data-direct><span class="hide-sm">Написати в&nbsp;</span>Direct</a>
   </header>
 
@@ -57,7 +61,7 @@
         <div class="section-head">
           <p class="kicker dark"><span class="seal" aria-hidden="true">茶</span> Каталог</p>
           <h2 class="h2" id="chai-title">Чай</h2>
-          <p class="lead">Натисни «Опис товару», щоб дізнатися походження і смак чаю. Ціну й наявність підкажемо в Direct.</p>
+          <p class="lead">Натисни «Опис товару», щоб дізнатися походження і смак чаю, а «+» — щоб додати в кошик. Ціну й наявність підкажемо, коли зв’яжемося.</p>
         </div>
 
         <div class="filters" role="tablist" aria-label="Вид чаю" data-filters>
@@ -187,17 +191,17 @@
       <div class="wrap order-grid">
         <div>
           <p class="kicker"><span class="seal" aria-hidden="true">信</span> Замовлення</p>
-          <h2 class="h2 light" id="order-title">Замовлення —<br>у Direct.</h2>
+          <h2 class="h2 light" id="order-title">Замовлення —<br>за хвилину.</h2>
         </div>
         <div>
           <ol class="order-steps">
-            <li><b>Обери чай</b> у каталозі або напиши, який смак тобі подобається.</li>
-            <li><b>Напиши нам у Direct</b> назву чаю, який сподобався.</li>
-            <li><b>Узгодимо</b> вагу, оплату й доставку.</li>
+            <li><b>Додай у кошик</b> чай і посуд — кнопка «+» під кожним товаром.</li>
+            <li><b>Залиш email</b> і як тобі зручніше: Telegram, Instagram чи телефон.</li>
+            <li><b>Ми напишемо</b>, щоб узгодити вагу, оплату й доставку.</li>
           </ol>
           <div class="order-actions">
-            <a class="btn btn-red btn-lg" href="https://ig.me/m/pueromaniya" target="_blank" rel="noopener">Написати в Direct</a>
-            <a class="btn btn-ghost" href="https://www.instagram.com/pueromaniya/" target="_blank" rel="noopener">Instagram @pueromaniya</a>
+            <button class="btn btn-red btn-lg" type="button" data-cart-open>Відкрити кошик</button>
+            <a class="btn btn-ghost" href="https://ig.me/m/pueromaniya" target="_blank" rel="noopener">Або написати в Direct</a>
           </div>
         </div>
       </div>
@@ -243,6 +247,57 @@
         <ul class="sheet-props" data-sheet-props></ul>
         <h3 class="sheet-h" data-sheet-brew-h>Як заварювати</h3>
         <p class="sheet-brew" data-sheet-brew></p>
+        <button class="btn btn-red sheet-add" type="button" data-sheet-add>+ Додати в кошик</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Кошик + форма замовлення -->
+  <dialog class="cart" data-cart aria-labelledby="cart-title">
+    <div class="cart-inner">
+      <div class="cart-head">
+        <h2 class="cart-title" id="cart-title">Кошик</h2>
+        <button class="sheet-close cart-close" type="button" data-cart-close aria-label="Закрити">×</button>
+      </div>
+
+      <div class="cart-scroll">
+        <p class="cart-empty" data-cart-empty>Кошик порожній. Натисни «+» під товаром, щоб додати його сюди.</p>
+        <ul class="cart-list" data-cart-list></ul>
+
+        <form class="cart-form" data-cart-form novalidate>
+          <h3 class="sheet-h">Твої контакти</h3>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+          </label>
+          <fieldset class="field">
+            <legend>Як з тобою зв’язатися?</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="via" value="Telegram" checked><span>Telegram</span></label>
+              <label><input type="radio" name="via" value="Instagram"><span>Instagram</span></label>
+              <label><input type="radio" name="via" value="Телефон"><span>Телефон</span></label>
+            </div>
+          </fieldset>
+          <label class="field">
+            <span data-handle-label>Твій Telegram</span>
+            <input type="text" name="handle" autocomplete="off" placeholder="@нікнейм" required data-handle>
+          </label>
+          <label class="field">
+            <span>Коментар <small>(необов’язково)</small></span>
+            <textarea name="comment" rows="2" placeholder="Наприклад: скільки грамів, місто доставки"></textarea>
+          </label>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <p class="form-error" role="alert" data-form-error hidden></p>
+          <button class="btn btn-red btn-lg cart-submit" type="submit" data-cart-submit>Надіслати замовлення</button>
+          <p class="cart-note">Оплати на сайті немає: ми напишемо тобі, щоб узгодити ціну, вагу й доставку.</p>
+        </form>
+
+        <div class="cart-done" data-cart-done hidden>
+          <p class="cart-done-mark" aria-hidden="true">✓</p>
+          <h3 class="cart-title">Замовлення надіслано</h3>
+          <p data-done-text>Ми зв’яжемося з тобою найближчим часом.</p>
+          <button class="btn btn-ghost" type="button" data-cart-close>Закрити</button>
+        </div>
       </div>
     </div>
   </dialog>
@@ -250,7 +305,7 @@
   <div class="toast" role="status" aria-live="polite" data-toast></div>
 
   <script src="js/products.js?v=2" defer></script>
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/main.js?v=3" defer></script>
   <script type="module" src="js/tea3d.js"></script>
 </body>
 </html>
