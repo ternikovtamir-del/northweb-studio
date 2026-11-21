@@ -39,7 +39,7 @@ async function start3D() {
   const load = (src) => new Promise((res, rej) => loader.load(src, res, undefined, rej));
   let front, back, side;
   try {
-    [front, back, side] = await Promise.all([load('img/cake-front.webp?v=2'), load('img/cake-back.webp'), load('img/cake-side.webp')]);
+    [front, back, side] = await Promise.all([load('img/cake-front.webp?v=3'), load('img/cake-back.webp'), load('img/cake-side.webp')]);
   } catch (e) {
     document.documentElement.classList.add('no-webgl');
     return;
